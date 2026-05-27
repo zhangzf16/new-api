@@ -62,7 +62,7 @@ func calculateAudioQuota(info QuotaInfo) int {
 	audioCompletionRatio := decimal.NewFromFloat(ratio_setting.GetAudioCompletionRatio(info.ModelName))
 
 	groupRatio := decimal.NewFromFloat(info.GroupRatio)
-	modelRatio := decimal.NewFromFloat(info.ModelRatio)
+	modelRatio := decimal.NewFromFloat(common.ApplyModelRatioBillingSurcharge(info.ModelRatio))
 	ratio := groupRatio.Mul(modelRatio)
 
 	inputTextTokens := decimal.NewFromInt(int64(info.InputDetails.TextTokens))
