@@ -4569,7 +4569,7 @@
     "Zhipu V4": "智谱 V4",
     "Zoom": "缩放",
     "Built for AI developers": "为 AI 开发者而构建",
-    "{{name}} gives developers one place to connect models, manage keys, and ship reliable AI integrations.": "{{name}} 为开发者提供一个统一入口，用于连接模型、管理密钥并交付可靠的 AI 集成。",
+    "{{name}} gives developers one place to connect models, manage keys, and ship reliable AI integrations.": "{{name}} 不是简单的「API 代理」,而是围绕日常编码工作流打磨的一整套Coding体验",
     "Request debugging": "请求调试",
     "Inspect payloads, latency and errors so you can fix integrations before they reach production.": "查看请求体、延迟和错误，在上线前修好集成问题。",
     "Store upstream keys securely, switch providers cleanly, and keep development and production credentials separate.": "安全保存上游密钥，干净切换供应商，并将开发与生产凭据分开管理。",
