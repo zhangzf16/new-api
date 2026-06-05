@@ -291,9 +291,9 @@ function GatewayConsole() {
 
           <div className='mt-5 hidden gap-2 text-sm sm:grid'>
             {[
-              t('Header passthrough'),
-              t('Request inspection'),
-              t('Multi-model routing'),
+              t('Transparent Billing'),
+              t('Usage-based requests'),
+              t('Supports mainstream coding tools'),
             ].map((item) => (
               <div
                 key={item}
