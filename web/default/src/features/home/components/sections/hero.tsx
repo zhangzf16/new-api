@@ -124,7 +124,7 @@ export function Hero(props: HeroProps) {
                 {props.brandName}
               </span>
             </span>
-            <span className='block max-w-3xl text-2xl text-balance text-stone-600 sm:text-4xl md:text-5xl lg:text-6xl dark:text-stone-300'>
+            <span className='block max-w-3xl text-[1.375rem] text-balance text-stone-600 [word-break:keep-all] sm:text-4xl md:text-5xl lg:text-6xl dark:text-stone-300'>
               {t('One calm gateway for every AI model.')}
             </span>
           </h1>
