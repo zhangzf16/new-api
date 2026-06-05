@@ -52,9 +52,9 @@ export function Features(props: FeaturesProps) {
     },
     {
       icon: <BadgeDollarSign className='size-5' />,
-      title: t('Transparent cost control'),
+      title: t('Usage-based billing'),
       desc: t(
-        'Pre-consume quota, settle final usage and make every request traceable from token to invoice.'
+        'Track spend by request and model with clear pricing and limits that keep costs predictable.'
       ),
     },
     {

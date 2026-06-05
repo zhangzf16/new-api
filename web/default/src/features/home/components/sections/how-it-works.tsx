@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { BarChart3, Cable, Settings } from 'lucide-react'
+import { BarChart3, Cable, Wand2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { AnimateInView } from '@/components/animate-in-view'
 
@@ -30,19 +30,19 @@ export function HowItWorks(props: HowItWorksProps) {
   const steps = [
     {
       num: '1',
-      title: t('Connect providers'),
-      desc: t(
-        'Add upstream keys, assign groups and keep each provider isolated.'
-      ),
-      icon: <Settings className='size-6' strokeWidth={1.5} />,
-    },
-    {
-      num: '2',
       title: t('Ship one endpoint'),
       desc: t(
         'Point apps to one compatible base URL for chat, responses, images and more.'
       ),
       icon: <Cable className='size-6' strokeWidth={1.5} />,
+    },
+    {
+      num: '2',
+      title: t('Adapt popular AI developer tools'),
+      desc: t(
+        'One-click adapt Codex, Claude, Cursor and other mainstream AI developer tools for fast configuration access.'
+      ),
+      icon: <Wand2 className='size-6' strokeWidth={1.5} />,
     },
     {
       num: '3',
