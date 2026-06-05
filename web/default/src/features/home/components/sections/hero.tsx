@@ -116,8 +116,13 @@ export function Hero(props: HeroProps) {
           style={{ animationDelay: '80ms' }}
         >
           <h1 className='flex flex-col items-center gap-3 leading-none font-semibold tracking-normal'>
-            <span className='inline-flex max-w-full pb-3 text-5xl leading-[1.08] font-black text-stone-950 sm:text-6xl md:text-7xl lg:text-8xl dark:text-stone-50'>
-              {props.brandName}
+            <span className='hero-brand-shell inline-flex max-w-full'>
+              <span
+                className='hero-brand-name inline-flex max-w-full pb-3 text-5xl leading-[1.08] font-black sm:text-6xl md:text-7xl lg:text-8xl'
+                data-text={props.brandName}
+              >
+                {props.brandName}
+              </span>
             </span>
             <span className='block text-3xl whitespace-nowrap text-stone-600 sm:text-4xl md:text-5xl lg:text-6xl dark:text-stone-300'>
               {t('One calm gateway for every AI model.')}
