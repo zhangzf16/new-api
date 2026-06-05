@@ -18,11 +18,8 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import {
   BadgeDollarSign,
-  Braces,
-  ChartNoAxesCombined,
   KeyRound,
   Layers3,
-  Route,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { AnimateInView } from '@/components/animate-in-view'
@@ -37,20 +34,6 @@ export function Features(props: FeaturesProps) {
 
   const features = [
     {
-      icon: <Braces className='size-5' />,
-      title: t('One API, many model families'),
-      desc: t(
-        'Keep your client code stable while switching between OpenAI, Claude, Gemini and local providers.'
-      ),
-    },
-    {
-      icon: <Route className='size-5' />,
-      title: t('Smart routing and failover'),
-      desc: t(
-        'Route by group, priority and health so production traffic keeps moving when an upstream is slow.'
-      ),
-    },
-    {
       icon: <BadgeDollarSign className='size-5' />,
       title: t('Transparent ratio rules'),
       desc: t(
@@ -62,13 +45,6 @@ export function Features(props: FeaturesProps) {
       title: t('¥1 ≈ $1 usage'),
       desc: t(
         'RMB billing gives you model usage equivalent to USD value, with real-world cost performance around 7x better.'
-      ),
-    },
-    {
-      icon: <ChartNoAxesCombined className='size-5' />,
-      title: t('Request tracing'),
-      desc: t(
-        'Follow model choice, retries and failover decisions for every request from one console.'
       ),
     },
     {
