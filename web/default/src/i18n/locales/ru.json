@@ -4588,6 +4588,14 @@
     "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.": "Backend-кластеры корпоративного уровня единообразно подключают зарубежных провайдеров, а оптимизация маршрутов, отказоустойчивость между узлами и автоматические повторы защищают долгие coding-сессии.",
     "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "Раскройте творческий потенциал и повысьте эффективность разработки. Интеллектуальный опыт программирования нового поколения для разработчиков, с которым писать код стало проще, чем когда-либо.",
     "Transparent ratio rules": "Прозрачные правила коэффициентов",
-    "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.": "Никаких непрозрачных кредитных схем. Все записи об использовании и изменениях остаются отслеживаемыми, поэтому любой счёт легко проверить."
+    "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.": "Никаких непрозрачных кредитных схем. Все записи об использовании и изменениях остаются отслеживаемыми, поэтому любой счёт легко проверить.",
+    "Create API key": "Создать API-ключ",
+    "Create a new API key from the \"Tokens\" page in the console. You can create different keys for different projects and manage quota and permissions independently.": "Создайте новый API-ключ на странице «Токены» в консоли. Для разных проектов можно создать разные ключи и отдельно управлять квотами и правами.",
+    "Configure Base URL": "Настроить Base URL",
+    "Point the Base URL of your SDK or tool to the {{name}} service endpoint, and use the API key you just created.": "Укажите Base URL вашего SDK или инструмента на адрес сервиса {{name}}, а в API Key подставьте только что созданный ключ.",
+    "Start making requests": "Начать вызовы",
+    "Send requests using the standard OpenAI SDK format. Switch models by changing the model parameter, and {{name}} routes each request to the best upstream automatically.": "Отправляйте запросы в стандартном формате OpenAI SDK. Меняйте модели через параметр model, а {{name}} автоматически маршрутизирует каждый запрос в лучший upstream-канал.",
+    "¥1 ≈ $1 usage": "¥1 ≈ $1 по объёму использования",
+    "RMB billing gives you model usage equivalent to USD value, with real-world cost performance around 7x better.": "Тарификация в юанях даёт объём использования моделей, эквивалентный долларовой стоимости, а реальная выгода по цене составляет около 7x."
   }
 }

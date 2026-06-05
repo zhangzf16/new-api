@@ -4588,6 +4588,14 @@
     "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.": "エンタープライズ級バックエンドクラスターが海外プロバイダーを一元接続し、経路最適化・マルチノード冗長化・自動リトライで長時間のコーディングセッションを守ります。",
     "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "創造力を解き放ち、開発効率を高めます。開発者のために作られた次世代のスマートコーディング体験で、コードを書くことがこれまでになく簡単になります。",
     "Transparent ratio rules": "倍率ルールを透明化",
-    "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.": "不透明なポイント制は採用しません。利用と調整の記録はすべて追跡可能で、すべての請求を明確に確認できます。"
+    "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.": "不透明なポイント制は採用しません。利用と調整の記録はすべて追跡可能で、すべての請求を明確に確認できます。",
+    "Create API key": "API キーを作成",
+    "Create a new API key from the \"Tokens\" page in the console. You can create different keys for different projects and manage quota and permissions independently.": "コンソールの「トークン」ページで新しい API キーを作成します。プロジェクトごとに別のキーを作成し、クォータと権限を個別に管理できます。",
+    "Configure Base URL": "Base URL を設定",
+    "Point the Base URL of your SDK or tool to the {{name}} service endpoint, and use the API key you just created.": "SDK やツールの Base URL を {{name}} のサービスアドレスに向け、先ほど作成した API キーを入力します。",
+    "Start making requests": "呼び出しを開始",
+    "Send requests using the standard OpenAI SDK format. Switch models by changing the model parameter, and {{name}} routes each request to the best upstream automatically.": "標準的な OpenAI SDK 形式でリクエストを送信します。model パラメータを変更するだけでモデルを切り替えられ、{{name}} が各リクエストを最適な上流チャネルへ自動ルーティングします。",
+    "¥1 ≈ $1 usage": "¥1 ≈ $1 相当の利用量",
+    "RMB billing gives you model usage equivalent to USD value, with real-world cost performance around 7x better.": "人民元課金で、米ドル換算と同等のモデル利用量を確保でき、実際のコストパフォーマンスは約 7 倍です。"
   }
 }

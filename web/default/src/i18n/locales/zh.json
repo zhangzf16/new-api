@@ -4588,6 +4588,14 @@
     "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.": "企业级后端集群统一对接海外供应商，优化线路 + 多节点容灾 + 自动重试，为长时间编码会话保驾护航。",
     "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "释放创意潜能，提升开发效率。为开发者打造的下一代智能编程体验，让代码编写从未如此简单。",
     "Transparent ratio rules": "倍率规则透明可查",
-    "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.": "拒绝不透明积分制，使用和调整记录全部可追溯，让每一份账单都算得清。"
+    "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.": "拒绝不透明积分制，使用和调整记录全部可追溯，让每一份账单都算得清。",
+    "Create API key": "创建 API 密钥",
+    "Create a new API key from the \"Tokens\" page in the console. You can create different keys for different projects and manage quota and permissions independently.": "在控制台的「令牌」页面创建新的 API Key。你可以为不同项目创建不同密钥，独立管理额度和权限。",
+    "Configure Base URL": "配置 Base URL",
+    "Point the Base URL of your SDK or tool to the {{name}} service endpoint, and use the API key you just created.": "将你的 SDK 或工具的 Base URL 指向 {{name}} 服务地址，API Key 填入刚创建的密钥。",
+    "Start making requests": "开始调用",
+    "Send requests using the standard OpenAI SDK format. Switch models by changing the model parameter, and {{name}} routes each request to the best upstream automatically.": "使用标准 OpenAI SDK 格式发送请求，更换 model 参数即可切换不同模型，{{name}} 自动路由到最优通道。",
+    "¥1 ≈ $1 usage": "¥1 ≈ $1 用量",
+    "RMB billing gives you model usage equivalent to USD value, with real-world cost performance around 7x better.": "人民币计费，享受等值美元的模型调用量，实际性价比约 7 倍。"
   }
 }

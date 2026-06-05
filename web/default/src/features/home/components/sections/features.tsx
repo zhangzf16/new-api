@@ -59,9 +59,9 @@ export function Features(props: FeaturesProps) {
     },
     {
       icon: <KeyRound className='size-5' />,
-      title: t('Key management built in'),
+      title: t('¥1 ≈ $1 usage'),
       desc: t(
-        'Store upstream keys securely, switch providers cleanly, and keep development and production credentials separate.'
+        'RMB billing gives you model usage equivalent to USD value, with real-world cost performance around 7x better.'
       ),
     },
     {

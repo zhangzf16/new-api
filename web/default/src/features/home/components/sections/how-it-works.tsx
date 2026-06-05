@@ -16,7 +16,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import { BarChart3, Cable, Wand2 } from 'lucide-react'
+import { KeyRound, Link2, Sparkles } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { AnimateInView } from '@/components/animate-in-view'
 
@@ -30,27 +30,29 @@ export function HowItWorks(props: HowItWorksProps) {
   const steps = [
     {
       num: '1',
-      title: t('Ship one endpoint'),
+      title: t('Create API key'),
       desc: t(
-        'Point apps to one compatible base URL for chat, responses, images and more.'
+        'Create a new API key from the "Tokens" page in the console. You can create different keys for different projects and manage quota and permissions independently.'
       ),
-      icon: <Cable className='size-6' strokeWidth={1.5} />,
+      icon: <KeyRound className='size-6' strokeWidth={1.5} />,
     },
     {
       num: '2',
-      title: t('Adapt popular AI developer tools'),
+      title: t('Configure Base URL'),
       desc: t(
-        'One-click adapt Codex, Claude, Cursor and other mainstream AI developer tools for fast configuration access.'
+        'Point the Base URL of your SDK or tool to the {{name}} service endpoint, and use the API key you just created.',
+        { name: props.brandName }
       ),
-      icon: <Wand2 className='size-6' strokeWidth={1.5} />,
+      icon: <Link2 className='size-6' strokeWidth={1.5} />,
     },
     {
       num: '3',
-      title: t('Inspect every request'),
+      title: t('Start making requests'),
       desc: t(
-        'Trace latency, errors and route selection in real time while you tune models and prompts.'
+        'Send requests using the standard OpenAI SDK format. Switch models by changing the model parameter, and {{name}} routes each request to the best upstream automatically.',
+        { name: props.brandName }
       ),
-      icon: <BarChart3 className='size-6' strokeWidth={1.5} />,
+      icon: <Sparkles className='size-6' strokeWidth={1.5} />,
     },
   ]
 

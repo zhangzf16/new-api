@@ -4588,6 +4588,14 @@
     "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.": "Cụm backend cấp doanh nghiệp kết nối thống nhất các nhà cung cấp overseas, với tối ưu tuyến, dự phòng nhiều nút và tự động retry để bảo vệ các phiên coding kéo dài.",
     "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "Giải phóng tiềm năng sáng tạo và nâng cao hiệu suất phát triển. Trải nghiệm lập trình thông minh thế hệ mới dành cho nhà phát triển, giúp việc viết mã trở nên dễ dàng hơn bao giờ hết.",
     "Transparent ratio rules": "Quy tắc tỷ lệ minh bạch",
-    "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.": "Không dùng hệ điểm mập mờ. Mọi bản ghi sử dụng và điều chỉnh đều có thể truy vết, để từng hóa đơn đều dễ kiểm chứng."
+    "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.": "Không dùng hệ điểm mập mờ. Mọi bản ghi sử dụng và điều chỉnh đều có thể truy vết, để từng hóa đơn đều dễ kiểm chứng.",
+    "Create API key": "Tạo API key",
+    "Create a new API key from the \"Tokens\" page in the console. You can create different keys for different projects and manage quota and permissions independently.": "Tạo API key mới từ trang “Token” trong console. Bạn có thể tạo các khóa khác nhau cho từng dự án và quản lý riêng hạn mức cùng quyền truy cập.",
+    "Configure Base URL": "Cấu hình Base URL",
+    "Point the Base URL of your SDK or tool to the {{name}} service endpoint, and use the API key you just created.": "Trỏ Base URL của SDK hoặc công cụ của bạn tới địa chỉ dịch vụ {{name}}, rồi dùng API key vừa tạo.",
+    "Start making requests": "Bắt đầu gọi API",
+    "Send requests using the standard OpenAI SDK format. Switch models by changing the model parameter, and {{name}} routes each request to the best upstream automatically.": "Gửi yêu cầu theo định dạng chuẩn OpenAI SDK. Chỉ cần đổi tham số model để chuyển mô hình, và {{name}} sẽ tự động định tuyến từng yêu cầu tới kênh upstream tốt nhất.",
+    "¥1 ≈ $1 usage": "¥1 ≈ $1 mức dùng",
+    "RMB billing gives you model usage equivalent to USD value, with real-world cost performance around 7x better.": "Thanh toán bằng RMB nhưng nhận được mức sử dụng mô hình tương đương giá trị USD, với hiệu quả chi phí thực tế khoảng 7x."
   }
 }

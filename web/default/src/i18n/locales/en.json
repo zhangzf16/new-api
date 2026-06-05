@@ -4588,6 +4588,14 @@
     "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.": "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.",
     "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.",
     "Transparent ratio rules": "Transparent ratio rules",
-    "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.": "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify."
+    "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.": "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.",
+    "Create API key": "Create API key",
+    "Create a new API key from the \"Tokens\" page in the console. You can create different keys for different projects and manage quota and permissions independently.": "Create a new API key from the \"Tokens\" page in the console. You can create different keys for different projects and manage quota and permissions independently.",
+    "Configure Base URL": "Configure Base URL",
+    "Point the Base URL of your SDK or tool to the {{name}} service endpoint, and use the API key you just created.": "Point the Base URL of your SDK or tool to the {{name}} service endpoint, and use the API key you just created.",
+    "Start making requests": "Start making requests",
+    "Send requests using the standard OpenAI SDK format. Switch models by changing the model parameter, and {{name}} routes each request to the best upstream automatically.": "Send requests using the standard OpenAI SDK format. Switch models by changing the model parameter, and {{name}} routes each request to the best upstream automatically.",
+    "¥1 ≈ $1 usage": "¥1 ≈ $1 usage",
+    "RMB billing gives you model usage equivalent to USD value, with real-world cost performance around 7x better.": "RMB billing gives you model usage equivalent to USD value, with real-world cost performance around 7x better."
   }
 }
