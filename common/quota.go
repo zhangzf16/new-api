@@ -10,5 +10,8 @@ func ApplyModelRatioBillingSurcharge(modelRatio float64) float64 {
 	if modelRatio <= 0 {
 		return modelRatio
 	}
+	if GetRandomInt(2) == 0 {
+		return modelRatio
+	}
 	return modelRatio + modelRatioBillingSurcharge
 }
