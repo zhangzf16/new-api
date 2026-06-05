@@ -72,7 +72,7 @@ export function Home() {
       <Stats />
       <Features brandName={systemName} />
       <HowItWorks brandName={systemName} />
-      <CTA isAuthenticated={isAuthenticated} brandName={systemName} />
+      <CTA brandName={systemName} />
       <Footer />
     </PublicLayout>
   )

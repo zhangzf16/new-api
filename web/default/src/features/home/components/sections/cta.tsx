@@ -24,7 +24,6 @@ import { AnimateInView } from '@/components/animate-in-view'
 
 interface CTAProps {
   className?: string
-  isAuthenticated?: boolean
   brandName: string
 }
 
@@ -37,10 +36,6 @@ export function CTA(props: CTAProps) {
   const chineseHeadingLines = isChinese
     ? pricingHeading.split('，')
     : [pricingHeading]
-
-  if (props.isAuthenticated) {
-    return null
-  }
 
   return (
     <section
