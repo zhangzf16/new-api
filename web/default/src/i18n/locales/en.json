@@ -4567,6 +4567,25 @@
     "Zero retention": "Zero retention",
     "Zhipu": "Zhipu",
     "Zhipu V4": "Zhipu V4",
-    "Zoom": "Zoom"
+    "Zoom": "Zoom",
+    "Built for AI developers": "Built for AI developers",
+    "{{name}} gives developers one place to connect models, manage keys, and ship reliable AI integrations.": "{{name}} gives developers one place to connect models, manage keys, and ship reliable AI integrations.",
+    "Request debugging": "Request debugging",
+    "Inspect payloads, latency and errors so you can fix integrations before they reach production.": "Inspect payloads, latency and errors so you can fix integrations before they reach production.",
+    "Store upstream keys securely, switch providers cleanly, and keep development and production credentials separate.": "Store upstream keys securely, switch providers cleanly, and keep development and production credentials separate.",
+    "Request tracing": "Request tracing",
+    "Follow model choice, retries and failover decisions for every request from one console.": "Follow model choice, retries and failover decisions for every request from one console.",
+    "Inspect every request": "Inspect every request",
+    "Trace latency, errors and route selection in real time while you tune models and prompts.": "Trace latency, errors and route selection in real time while you tune models and prompts.",
+    "Route OpenAI, Claude, Gemini and domestic models through one compatible API. Keep client code stable, switch providers faster, and debug integrations from one focused console.": "Route OpenAI, Claude, Gemini and domestic models through one compatible API. Keep client code stable, switch providers faster, and debug integrations from one focused console.",
+    "Start with one token, one endpoint and a console built for testing, routing and request inspection.": "Start with one token, one endpoint and a console built for testing, routing and request inspection.",
+    "model families supported": "model families supported",
+    "Header passthrough": "Header passthrough",
+    "Request inspection": "Request inspection",
+    "Multi-model routing": "Multi-model routing",
+    "Run your relay on your own infrastructure and keep network, data and model access boundaries under control.": "Run your relay on your own infrastructure and keep network, data and model access boundaries under control.",
+    "Stable access to overseas models": "Stable access to overseas models",
+    "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.": "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.",
+    "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever."
   }
 }

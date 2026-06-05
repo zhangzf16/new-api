@@ -4567,6 +4567,25 @@
     "Zero retention": "Без хранения данных",
     "Zhipu": "Zhipu",
     "Zhipu V4": "Zhipu V4",
-    "Zoom": "Zoom"
+    "Zoom": "Zoom",
+    "Built for AI developers": "Создано для AI-разработчиков",
+    "{{name}} gives developers one place to connect models, manage keys, and ship reliable AI integrations.": "{{name}} даёт разработчикам единое место для подключения моделей, управления ключами и выпуска надёжных AI-интеграций.",
+    "Request debugging": "Отладка запросов",
+    "Inspect payloads, latency and errors so you can fix integrations before they reach production.": "Проверяйте payload, задержки и ошибки, чтобы исправлять интеграции до выхода в продакшен.",
+    "Store upstream keys securely, switch providers cleanly, and keep development and production credentials separate.": "Безопасно храните upstream-ключи, аккуратно переключайте провайдеров и разделяйте учётные данные для разработки и продакшена.",
+    "Request tracing": "Трассировка запросов",
+    "Follow model choice, retries and failover decisions for every request from one console.": "Отслеживайте выбор модели, повторы и решения о переключении для каждого запроса из одной консоли.",
+    "Inspect every request": "Проверяйте каждый запрос",
+    "Trace latency, errors and route selection in real time while you tune models and prompts.": "В реальном времени отслеживайте задержки, ошибки и выбор маршрута, пока настраиваете модели и промпты.",
+    "Route OpenAI, Claude, Gemini and domestic models through one compatible API. Keep client code stable, switch providers faster, and debug integrations from one focused console.": "Маршрутизируйте OpenAI, Claude, Gemini и локальные модели через один совместимый API. Сохраняйте стабильный клиентский код, быстрее переключайте провайдеров и отлаживайте интеграции из одной консоли.",
+    "Start with one token, one endpoint and a console built for testing, routing and request inspection.": "Начните с одного токена, одного endpoint и консоли для тестирования, маршрутизации и проверки запросов.",
+    "model families supported": "поддерживаемые семейства моделей",
+    "Header passthrough": "Проброс заголовков",
+    "Request inspection": "Проверка запросов",
+    "Multi-model routing": "Маршрутизация между моделями",
+    "Run your relay on your own infrastructure and keep network, data and model access boundaries under control.": "Разверните свой relay на собственной инфраструктуре и контролируйте границы сети, данных и доступа к моделям.",
+    "Stable access to overseas models": "Стабильный доступ к зарубежным моделям",
+    "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.": "Backend-кластеры корпоративного уровня единообразно подключают зарубежных провайдеров, а оптимизация маршрутов, отказоустойчивость между узлами и автоматические повторы защищают долгие coding-сессии.",
+    "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "Раскройте творческий потенциал и повысьте эффективность разработки. Интеллектуальный опыт программирования нового поколения для разработчиков, с которым писать код стало проще, чем когда-либо."
   }
 }

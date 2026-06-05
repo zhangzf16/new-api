@@ -19,6 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 import { Link } from '@tanstack/react-router'
 import { ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { AnimateInView } from '@/components/animate-in-view'
 
@@ -29,7 +30,8 @@ interface CTAProps {
 }
 
 export function CTA(props: CTAProps) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const isChinese = i18n.resolvedLanguage?.startsWith('zh') === true
 
   if (props.isAuthenticated) {
     return null
@@ -46,16 +48,18 @@ export function CTA(props: CTAProps) {
         className='mx-auto max-w-3xl text-center'
         animation='scale-in'
       >
-        <h2 className='text-3xl leading-tight font-semibold tracking-normal text-stone-950 md:text-5xl dark:text-stone-50'>
+        <h2
+          className={cn(
+            'leading-tight font-semibold tracking-normal text-stone-950 dark:text-stone-50',
+            isChinese
+              ? 'text-[clamp(1rem,3.8vw,3rem)] whitespace-nowrap'
+              : 'text-3xl md:text-5xl'
+          )}
+        >
           {t('Make {{name}} the front door for your AI stack.', {
             name: props.brandName,
           })}
         </h2>
-        <p className='mx-auto mt-5 max-w-xl text-base leading-8 text-stone-600 dark:text-stone-300'>
-          {t(
-            'Start with one token, one endpoint and a console built for routing, billing and reliability.'
-          )}
-        </p>
         <div className='mt-8 flex items-center justify-center gap-3'>
           <Button
             className='h-11 rounded-lg bg-stone-950 px-5 text-sm text-white hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-950 dark:hover:bg-white'

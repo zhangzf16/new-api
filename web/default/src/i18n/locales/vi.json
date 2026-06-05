@@ -4567,6 +4567,25 @@
     "Zero retention": "Không lưu dữ liệu",
     "Zhipu": "Zhipu",
     "Zhipu V4": "Zhipu V4",
-    "Zoom": "Zoom"
+    "Zoom": "Zoom",
+    "Built for AI developers": "Dành cho nhà phát triển AI",
+    "{{name}} gives developers one place to connect models, manage keys, and ship reliable AI integrations.": "{{name}} mang đến cho nhà phát triển một nơi duy nhất để kết nối mô hình, quản lý khóa và triển khai tích hợp AI đáng tin cậy.",
+    "Request debugging": "Gỡ lỗi yêu cầu",
+    "Inspect payloads, latency and errors so you can fix integrations before they reach production.": "Kiểm tra payload, độ trễ và lỗi để sửa tích hợp trước khi lên production.",
+    "Store upstream keys securely, switch providers cleanly, and keep development and production credentials separate.": "Lưu khóa upstream an toàn, chuyển nhà cung cấp gọn gàng và tách riêng thông tin xác thực cho môi trường phát triển và production.",
+    "Request tracing": "Theo dõi yêu cầu",
+    "Follow model choice, retries and failover decisions for every request from one console.": "Theo dõi lựa chọn mô hình, lượt thử lại và quyết định chuyển dự phòng cho từng yêu cầu từ một console duy nhất.",
+    "Inspect every request": "Kiểm tra từng yêu cầu",
+    "Trace latency, errors and route selection in real time while you tune models and prompts.": "Theo dõi độ trễ, lỗi và lựa chọn tuyến theo thời gian thực khi bạn tinh chỉnh mô hình và prompt.",
+    "Route OpenAI, Claude, Gemini and domestic models through one compatible API. Keep client code stable, switch providers faster, and debug integrations from one focused console.": "Định tuyến OpenAI, Claude, Gemini và các mô hình nội địa qua một API tương thích. Giữ mã client ổn định, chuyển nhà cung cấp nhanh hơn và gỡ lỗi tích hợp từ một console tập trung.",
+    "Start with one token, one endpoint and a console built for testing, routing and request inspection.": "Bắt đầu với một token, một endpoint và một console dành cho kiểm thử, định tuyến và kiểm tra yêu cầu.",
+    "model families supported": "họ mô hình được hỗ trợ",
+    "Header passthrough": "Chuyển tiếp header",
+    "Request inspection": "Kiểm tra yêu cầu",
+    "Multi-model routing": "Định tuyến đa mô hình",
+    "Run your relay on your own infrastructure and keep network, data and model access boundaries under control.": "Chạy relay trên hạ tầng của riêng bạn và giữ quyền kiểm soát ranh giới mạng, dữ liệu và quyền truy cập mô hình.",
+    "Stable access to overseas models": "Truy cập ổn định tới mô hình overseas",
+    "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.": "Cụm backend cấp doanh nghiệp kết nối thống nhất các nhà cung cấp overseas, với tối ưu tuyến, dự phòng nhiều nút và tự động retry để bảo vệ các phiên coding kéo dài.",
+    "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "Giải phóng tiềm năng sáng tạo và nâng cao hiệu suất phát triển. Trải nghiệm lập trình thông minh thế hệ mới dành cho nhà phát triển, giúp việc viết mã trở nên dễ dàng hơn bao giờ hết."
   }
 }

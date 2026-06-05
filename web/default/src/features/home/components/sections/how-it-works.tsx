@@ -46,8 +46,10 @@ export function HowItWorks(props: HowItWorksProps) {
     },
     {
       num: '3',
-      title: t('Operate with clarity'),
-      desc: t('Track usage, cost, health and routing decisions in real time.'),
+      title: t('Inspect every request'),
+      desc: t(
+        'Trace latency, errors and route selection in real time while you tune models and prompts.'
+      ),
       icon: <BarChart3 className='size-6' strokeWidth={1.5} />,
     },
   ]

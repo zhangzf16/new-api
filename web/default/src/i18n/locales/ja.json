@@ -4567,6 +4567,25 @@
     "Zero retention": "データ保持なし",
     "Zhipu": "Zhipu",
     "Zhipu V4": "Zhipu V 4",
-    "Zoom": "ズーム"
+    "Zoom": "ズーム",
+    "Built for AI developers": "AI 開発者向け",
+    "{{name}} gives developers one place to connect models, manage keys, and ship reliable AI integrations.": "{{name}} は、モデル接続、キー管理、信頼できる AI 連携の出荷を 1 か所で行える開発者向けの入口です。",
+    "Request debugging": "リクエストのデバッグ",
+    "Inspect payloads, latency and errors so you can fix integrations before they reach production.": "ペイロード、レイテンシ、エラーを確認し、本番前に連携の問題を修正できます。",
+    "Store upstream keys securely, switch providers cleanly, and keep development and production credentials separate.": "上流キーを安全に保管し、プロバイダーをきれいに切り替え、開発用と本番用の認証情報を分離します。",
+    "Request tracing": "リクエスト追跡",
+    "Follow model choice, retries and failover decisions for every request from one console.": "1 つのコンソールで、各リクエストのモデル選択、再試行、フェイルオーバー判断を追跡します。",
+    "Inspect every request": "すべてのリクエストを確認",
+    "Trace latency, errors and route selection in real time while you tune models and prompts.": "モデルやプロンプトを調整しながら、レイテンシ、エラー、ルート選択をリアルタイムで追跡します。",
+    "Route OpenAI, Claude, Gemini and domestic models through one compatible API. Keep client code stable, switch providers faster, and debug integrations from one focused console.": "OpenAI、Claude、Gemini、国内モデルを 1 つの互換 API でルーティング。クライアントコードを安定させ、プロバイダーを素早く切り替え、1 つの専用コンソールで統合をデバッグできます。",
+    "Start with one token, one endpoint and a console built for testing, routing and request inspection.": "1 つのトークン、1 つのエンドポイント、そしてテスト・ルーティング・リクエスト確認のためのコンソールから始めましょう。",
+    "model families supported": "対応モデルファミリー",
+    "Header passthrough": "ヘッダー透過",
+    "Request inspection": "リクエスト確認",
+    "Multi-model routing": "マルチモデル ルーティング",
+    "Run your relay on your own infrastructure and keep network, data and model access boundaries under control.": "独自のインフラ上でリレーを実行し、ネットワーク、データ、モデルアクセス境界をコントロールします。",
+    "Stable access to overseas models": "海外モデルへの安定アクセス",
+    "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.": "エンタープライズ級バックエンドクラスターが海外プロバイダーを一元接続し、経路最適化・マルチノード冗長化・自動リトライで長時間のコーディングセッションを守ります。",
+    "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "創造力を解き放ち、開発効率を高めます。開発者のために作られた次世代のスマートコーディング体験で、コードを書くことがこれまでになく簡単になります。"
   }
 }

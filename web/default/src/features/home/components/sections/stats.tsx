@@ -27,7 +27,7 @@ export function Stats(_props: StatsProps) {
 
   const stats = [
     { value: '50+', label: t('upstream services integrated') },
-    { value: '100+', label: t('model billing support') },
+    { value: '100+', label: t('model families supported') },
     { value: '50+', label: t('compatible API routes') },
     { value: '10+', label: t('scheduling controls') },
   ]

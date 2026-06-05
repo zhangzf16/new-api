@@ -4567,6 +4567,25 @@
     "Zero retention": "Aucune rétention",
     "Zhipu": "Zhipu",
     "Zhipu V4": "Zhipu V4",
-    "Zoom": "Zoom"
+    "Zoom": "Zoom",
+    "Built for AI developers": "Conçu pour les développeurs IA",
+    "{{name}} gives developers one place to connect models, manage keys, and ship reliable AI integrations.": "{{name}} offre aux développeurs un point unique pour connecter des modèles, gérer les clés et livrer des intégrations IA fiables.",
+    "Request debugging": "Débogage des requêtes",
+    "Inspect payloads, latency and errors so you can fix integrations before they reach production.": "Inspectez les payloads, la latence et les erreurs pour corriger vos intégrations avant la production.",
+    "Store upstream keys securely, switch providers cleanly, and keep development and production credentials separate.": "Stockez les clés amont en sécurité, changez de fournisseur proprement et séparez les identifiants de dev et de prod.",
+    "Request tracing": "Traçage des requêtes",
+    "Follow model choice, retries and failover decisions for every request from one console.": "Suivez le choix du modèle, les tentatives et les bascules pour chaque requête depuis une seule console.",
+    "Inspect every request": "Inspecter chaque requête",
+    "Trace latency, errors and route selection in real time while you tune models and prompts.": "Suivez en temps réel la latence, les erreurs et le choix de routage pendant que vous ajustez modèles et prompts.",
+    "Route OpenAI, Claude, Gemini and domestic models through one compatible API. Keep client code stable, switch providers faster, and debug integrations from one focused console.": "Routez OpenAI, Claude, Gemini et les modèles domestiques via une API compatible. Gardez un code client stable, changez de fournisseur plus vite et déboguez les intégrations depuis une console dédiée.",
+    "Start with one token, one endpoint and a console built for testing, routing and request inspection.": "Commencez avec un token, un endpoint et une console pensée pour les tests, le routage et l’inspection des requêtes.",
+    "model families supported": "familles de modèles prises en charge",
+    "Header passthrough": "Transmission des en-têtes",
+    "Request inspection": "Inspection des requêtes",
+    "Multi-model routing": "Routage multi-modèle",
+    "Run your relay on your own infrastructure and keep network, data and model access boundaries under control.": "Exécutez votre relais sur votre propre infrastructure et gardez le contrôle des frontières réseau, données et accès aux modèles.",
+    "Stable access to overseas models": "Accès stable aux modèles overseas",
+    "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.": "Des clusters backend de niveau entreprise relient les fournisseurs overseas via une seule passerelle, avec optimisation de route, bascule multi-nœud et retries automatiques pour protéger les longues sessions de code.",
+    "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "Libérez votre potentiel créatif et gagnez en efficacité. Une expérience de programmation intelligente de nouvelle génération conçue pour les développeurs, qui rend l’écriture du code plus simple que jamais."
   }
 }

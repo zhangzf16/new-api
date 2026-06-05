@@ -138,7 +138,7 @@ export function Hero(props: HeroProps) {
           </h1>
           <p className='mx-auto mt-5 max-w-2xl text-sm leading-7 text-stone-600 sm:text-base md:mt-6 md:text-lg md:leading-8 dark:text-stone-300'>
             {t(
-              'Route OpenAI, Claude, Gemini and domestic models through one compatible API. Control keys, quotas, billing and failover from a focused console.'
+              'Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.'
             )}
           </p>
         </div>
@@ -291,9 +291,9 @@ function GatewayConsole() {
 
           <div className='mt-5 hidden gap-2 text-sm sm:grid'>
             {[
-              t('Quota pre-consume'),
-              t('Real-time billing'),
-              t('Multi-group routing'),
+              t('Header passthrough'),
+              t('Request inspection'),
+              t('Multi-model routing'),
             ].map((item) => (
               <div
                 key={item}

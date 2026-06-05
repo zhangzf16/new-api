@@ -52,30 +52,30 @@ export function Features(props: FeaturesProps) {
     },
     {
       icon: <BadgeDollarSign className='size-5' />,
-      title: t('Usage-based billing'),
+      title: t('Request debugging'),
       desc: t(
-        'Track spend by request and model with clear pricing and limits that keep costs predictable.'
+        'Inspect payloads, latency and errors so you can fix integrations before they reach production.'
       ),
     },
     {
       icon: <KeyRound className='size-5' />,
       title: t('Key management built in'),
       desc: t(
-        'Issue user tokens, isolate upstream keys and keep permissions aligned with groups and roles.'
+        'Store upstream keys securely, switch providers cleanly, and keep development and production credentials separate.'
       ),
     },
     {
       icon: <ChartNoAxesCombined className='size-5' />,
-      title: t('Operational observability'),
+      title: t('Request tracing'),
       desc: t(
-        'Understand latency, errors, usage and model mix without stitching together external dashboards.'
+        'Follow model choice, retries and failover decisions for every request from one console.'
       ),
     },
     {
       icon: <Layers3 className='size-5' />,
-      title: t('Ready for private deployment'),
+      title: t('Stable access to overseas models'),
       desc: t(
-        'Run your relay on your own infrastructure and keep policies, billing and data boundaries under control.'
+        'Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.'
       ),
     },
   ]
@@ -85,14 +85,14 @@ export function Features(props: FeaturesProps) {
       <div className='mx-auto max-w-6xl'>
         <AnimateInView className='mb-12 max-w-2xl'>
           <p className='mb-3 text-xs font-medium tracking-widest text-[#b85f3d] uppercase dark:text-[#f0a27c]'>
-            {t('Built for AI relay operations')}
+            {t('Built for AI developers')}
           </p>
           <h2 className='text-3xl leading-tight font-semibold tracking-normal text-stone-950 md:text-4xl dark:text-stone-50'>
             {t('Everything your AI middle station needs to run quietly.')}
           </h2>
           <p className='mt-4 text-base leading-7 text-stone-600 dark:text-stone-300'>
             {t(
-              '{{name}} gives builders and operators one place to manage providers, users, billing, reliability and access.',
+              '{{name}} gives developers one place to connect models, manage keys, and ship reliable AI integrations.',
               { name: props.brandName }
             )}
           </p>

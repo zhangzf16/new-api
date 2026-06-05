@@ -67,7 +67,7 @@ export const DEFAULT_STATS = [
   {
     value: '100',
     suffix: '+',
-    description: 'model billing support',
+    description: 'model families supported',
   },
   {
     value: '50',
