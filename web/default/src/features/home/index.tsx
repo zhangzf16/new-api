@@ -18,6 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { useTranslation } from 'react-i18next'
 import { useAuthStore } from '@/stores/auth-store'
+import { useSystemConfig } from '@/hooks/use-system-config'
 import { Markdown } from '@/components/ui/markdown'
 import { PublicLayout } from '@/components/layout'
 import { Footer } from '@/components/layout/components/footer'
@@ -29,6 +30,7 @@ export function Home() {
   const { auth } = useAuthStore()
   const isAuthenticated = !!auth.user
   const { content, isLoaded, isUrl } = useHomePageContent()
+  const { logo, systemName } = useSystemConfig()
 
   if (!isLoaded) {
     return (
@@ -62,11 +64,15 @@ export function Home() {
 
   return (
     <PublicLayout showMainContainer={false}>
-      <Hero isAuthenticated={isAuthenticated} />
+      <Hero
+        isAuthenticated={isAuthenticated}
+        brandLogo={logo}
+        brandName={systemName}
+      />
       <Stats />
-      <Features />
-      <HowItWorks />
-      <CTA isAuthenticated={isAuthenticated} />
+      <Features brandName={systemName} />
+      <HowItWorks brandName={systemName} />
+      <CTA isAuthenticated={isAuthenticated} brandName={systemName} />
       <Footer />
     </PublicLayout>
   )
