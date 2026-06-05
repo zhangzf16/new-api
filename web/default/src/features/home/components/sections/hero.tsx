@@ -31,6 +31,7 @@ import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 import { useStatus } from '@/hooks/use-status'
 import { Button } from '@/components/ui/button'
+import { getLobeIcon } from '@/lib/lobe-icon'
 
 interface HeroProps {
   className?: string
@@ -39,7 +40,14 @@ interface HeroProps {
   brandName: string
 }
 
-const providers = ['OpenAI', 'Claude', 'Gemini', 'DeepSeek', 'Qwen', 'Grok']
+const providers = [
+  { label: 'OpenAI', icon: 'OpenAI.Color' },
+  { label: 'Claude', icon: 'Claude.Color' },
+  { label: 'Gemini', icon: 'Gemini.Color' },
+  { label: 'DeepSeek', icon: 'DeepSeek.Color' },
+  { label: 'Qwen', icon: 'Qwen.Color' },
+  { label: 'Grok', icon: 'Grok.Color' },
+] as const
 
 export function Hero(props: HeroProps) {
   const { t } = useTranslation()
@@ -212,19 +220,19 @@ function GatewayConsole() {
           <div className='space-y-2 sm:space-y-2.5'>
             {providers.map((provider, index) => (
               <div
-                key={provider}
+                key={provider.label}
                 className={cn(
                   'items-center gap-2 rounded-xl border border-stone-300/60 bg-white/55 px-2 py-2 sm:gap-3 sm:px-3 sm:py-3 dark:border-white/10 dark:bg-white/[0.035]',
                   index > 3 ? 'hidden sm:flex' : 'flex'
                 )}
               >
-                <div className='flex size-7 shrink-0 items-center justify-center rounded-lg bg-stone-900 text-[9px] font-semibold text-white sm:size-8 sm:text-[10px] dark:bg-stone-100 dark:text-stone-950'>
-                  {provider.slice(0, 2)}
+                <div className='flex size-7 shrink-0 items-center justify-center rounded-lg border border-stone-200/80 bg-white text-stone-900 shadow-xs sm:size-8 dark:border-white/10 dark:bg-white/[0.08] dark:text-white'>
+                  {getLobeIcon(provider.icon, 18)}
                 </div>
                 <div className='min-w-0 flex-1'>
                   <div className='flex items-center justify-between gap-3'>
                     <span className='truncate text-sm font-medium'>
-                      {provider}
+                      {provider.label}
                     </span>
                     <span className='hidden font-mono text-xs text-stone-500 min-[420px]:inline dark:text-stone-400'>
                       {index === 0 ? '124ms' : `${136 + index * 17}ms`}
