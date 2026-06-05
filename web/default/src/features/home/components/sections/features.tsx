@@ -52,9 +52,9 @@ export function Features(props: FeaturesProps) {
     },
     {
       icon: <BadgeDollarSign className='size-5' />,
-      title: t('Request debugging'),
+      title: t('Transparent ratio rules'),
       desc: t(
-        'Inspect payloads, latency and errors so you can fix integrations before they reach production.'
+        'No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.'
       ),
     },
     {

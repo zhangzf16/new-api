@@ -4586,6 +4586,8 @@
     "Run your relay on your own infrastructure and keep network, data and model access boundaries under control.": "在自己的基础设施上运行中转服务，并保持网络、数据和模型访问边界可控。",
     "Stable access to overseas models": "稳定守护海外模型访问",
     "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.": "企业级后端集群统一对接海外供应商，优化线路 + 多节点容灾 + 自动重试，为长时间编码会话保驾护航。",
-    "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "释放创意潜能，提升开发效率。为开发者打造的下一代智能编程体验，让代码编写从未如此简单。"
+    "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "释放创意潜能，提升开发效率。为开发者打造的下一代智能编程体验，让代码编写从未如此简单。",
+    "Transparent ratio rules": "倍率规则透明可查",
+    "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.": "拒绝不透明积分制，使用和调整记录全部可追溯，让每一份账单都算得清。"
   }
 }

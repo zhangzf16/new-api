@@ -4586,6 +4586,8 @@
     "Run your relay on your own infrastructure and keep network, data and model access boundaries under control.": "Разверните свой relay на собственной инфраструктуре и контролируйте границы сети, данных и доступа к моделям.",
     "Stable access to overseas models": "Стабильный доступ к зарубежным моделям",
     "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.": "Backend-кластеры корпоративного уровня единообразно подключают зарубежных провайдеров, а оптимизация маршрутов, отказоустойчивость между узлами и автоматические повторы защищают долгие coding-сессии.",
-    "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "Раскройте творческий потенциал и повысьте эффективность разработки. Интеллектуальный опыт программирования нового поколения для разработчиков, с которым писать код стало проще, чем когда-либо."
+    "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "Раскройте творческий потенциал и повысьте эффективность разработки. Интеллектуальный опыт программирования нового поколения для разработчиков, с которым писать код стало проще, чем когда-либо.",
+    "Transparent ratio rules": "Прозрачные правила коэффициентов",
+    "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.": "Никаких непрозрачных кредитных схем. Все записи об использовании и изменениях остаются отслеживаемыми, поэтому любой счёт легко проверить."
   }
 }

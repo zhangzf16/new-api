@@ -4586,6 +4586,8 @@
     "Run your relay on your own infrastructure and keep network, data and model access boundaries under control.": "Chạy relay trên hạ tầng của riêng bạn và giữ quyền kiểm soát ranh giới mạng, dữ liệu và quyền truy cập mô hình.",
     "Stable access to overseas models": "Truy cập ổn định tới mô hình overseas",
     "Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.": "Cụm backend cấp doanh nghiệp kết nối thống nhất các nhà cung cấp overseas, với tối ưu tuyến, dự phòng nhiều nút và tự động retry để bảo vệ các phiên coding kéo dài.",
-    "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "Giải phóng tiềm năng sáng tạo và nâng cao hiệu suất phát triển. Trải nghiệm lập trình thông minh thế hệ mới dành cho nhà phát triển, giúp việc viết mã trở nên dễ dàng hơn bao giờ hết."
+    "Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.": "Giải phóng tiềm năng sáng tạo và nâng cao hiệu suất phát triển. Trải nghiệm lập trình thông minh thế hệ mới dành cho nhà phát triển, giúp việc viết mã trở nên dễ dàng hơn bao giờ hết.",
+    "Transparent ratio rules": "Quy tắc tỷ lệ minh bạch",
+    "No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.": "Không dùng hệ điểm mập mờ. Mọi bản ghi sử dụng và điều chỉnh đều có thể truy vết, để từng hóa đơn đều dễ kiểm chứng."
   }
 }

@@ -26,7 +26,7 @@ export function Stats(_props: StatsProps) {
   const { t } = useTranslation()
 
   const stats = [
-    { value: '50+', label: t('upstream services integrated') },
+    { value: '98+', label: 'SLA' },
     { value: '100+', label: t('model families supported') },
     { value: '50+', label: t('compatible API routes') },
     { value: '10+', label: t('scheduling controls') },
