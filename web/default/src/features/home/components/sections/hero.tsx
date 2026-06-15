@@ -16,22 +16,16 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
-import type React from 'react'
 import { Link } from '@tanstack/react-router'
 import {
   ArrowRight,
   BookOpen,
-  CheckCircle2,
-  Code2,
-  Gauge,
-  Route,
-  ShieldCheck,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 import { useStatus } from '@/hooks/use-status'
 import { Button } from '@/components/ui/button'
-import { getLobeIcon } from '@/lib/lobe-icon'
+import { LiveRoutingShowcase } from '../live-routing-showcase'
 
 interface HeroProps {
   className?: string
@@ -39,15 +33,6 @@ interface HeroProps {
   brandLogo: string
   brandName: string
 }
-
-const providers = [
-  { label: 'OpenAI', icon: 'OpenAI.Color' },
-  { label: 'Claude', icon: 'Claude.Color' },
-  { label: 'Gemini', icon: 'Gemini.Color' },
-  { label: 'DeepSeek', icon: 'DeepSeek.Color' },
-  { label: 'Qwen', icon: 'Qwen.Color' },
-  { label: 'Grok', icon: 'Grok.Color' },
-] as const
 
 export function Hero(props: HeroProps) {
   const { t } = useTranslation()
@@ -136,7 +121,7 @@ export function Hero(props: HeroProps) {
               {t('One calm gateway for every AI model.')}
             </span>
           </h1>
-          <p className='mx-auto mt-5 max-w-2xl text-sm leading-7 text-stone-600 sm:text-base md:mt-6 md:text-lg md:leading-8 dark:text-stone-300'>
+          <p className='mx-auto mt-5 max-w-full whitespace-nowrap text-[clamp(0.55rem,2.35vw,0.875rem)] leading-7 text-stone-600 sm:text-base md:mt-6 md:text-lg md:leading-8 dark:text-stone-300'>
             {t(
               'Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.'
             )}
@@ -178,152 +163,12 @@ export function Hero(props: HeroProps) {
           className='landing-animate-fade-up mt-10 w-full opacity-0 sm:mt-12'
           style={{ animationDelay: '240ms' }}
         >
-          <GatewayConsole />
+          <LiveRoutingShowcase
+            brandLogo={props.brandLogo}
+            brandName={props.brandName}
+          />
         </div>
       </div>
     </section>
-  )
-}
-
-function GatewayConsole() {
-  const { t } = useTranslation()
-
-  return (
-    <div className='mx-auto max-w-5xl overflow-hidden rounded-2xl border border-stone-300/70 bg-[#fbf7ef]/90 shadow-[0_24px_90px_-55px_rgba(78,52,31,0.85)] backdrop-blur-xl sm:rounded-[1.35rem] dark:border-white/10 dark:bg-[#1d1a17]/92 dark:shadow-[0_28px_100px_-50px_rgba(0,0,0,0.9)]'>
-      <div className='flex items-center justify-between gap-3 border-b border-stone-300/60 px-3 py-2.5 sm:px-4 sm:py-3 dark:border-white/10'>
-        <div className='flex items-center gap-2'>
-          <span className='size-2.5 rounded-full bg-[#e0764c]' />
-          <span className='size-2.5 rounded-full bg-[#d6b35f]' />
-          <span className='size-2.5 rounded-full bg-[#6aa48c]' />
-        </div>
-        <div className='min-w-0 truncate rounded-full border border-stone-300/70 bg-white/55 px-2.5 py-1 font-mono text-[10px] text-stone-500 sm:px-3 sm:text-[11px] dark:border-white/10 dark:bg-white/[0.04] dark:text-stone-400'>
-          https://api.example.com/v1/chat/completions
-        </div>
-      </div>
-
-      <div className='grid grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] gap-px bg-stone-300/60 dark:bg-white/10'>
-        <div className='min-w-0 bg-[#fbf7ef] p-3 sm:p-5 md:p-6 dark:bg-[#1d1a17]'>
-          <div className='mb-3 flex items-start justify-between gap-2 sm:mb-5 sm:items-center'>
-            <div className='min-w-0'>
-              <p className='text-xs font-medium tracking-widest text-stone-500 uppercase dark:text-stone-400'>
-                {t('Live routing plan')}
-              </p>
-              <h2 className='mt-1 line-clamp-2 text-sm font-semibold text-stone-950 sm:text-lg dark:text-stone-50'>
-                {t('Choose the best upstream automatically')}
-              </h2>
-            </div>
-            <span className='shrink-0 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-700 sm:px-2.5 sm:py-1 sm:text-xs dark:text-emerald-300'>
-              {t('Healthy')}
-            </span>
-          </div>
-
-          <div className='space-y-2 sm:space-y-2.5'>
-            {providers.map((provider, index) => (
-              <div
-                key={provider.label}
-                className={cn(
-                  'items-center gap-2 rounded-xl border border-stone-300/60 bg-white/55 px-2 py-2 sm:gap-3 sm:px-3 sm:py-3 dark:border-white/10 dark:bg-white/[0.035]',
-                  index > 3 ? 'hidden sm:flex' : 'flex'
-                )}
-              >
-                <div className='flex size-7 shrink-0 items-center justify-center rounded-lg border border-stone-200/80 bg-white text-stone-900 shadow-xs sm:size-8 dark:border-white/10 dark:bg-white/[0.08] dark:text-white'>
-                  {getLobeIcon(provider.icon, 18)}
-                </div>
-                <div className='min-w-0 flex-1'>
-                  <div className='flex items-center justify-between gap-3'>
-                    <span className='truncate text-sm font-medium'>
-                      {provider.label}
-                    </span>
-                    <span className='hidden font-mono text-xs text-stone-500 min-[420px]:inline dark:text-stone-400'>
-                      {index === 0 ? '124ms' : `${136 + index * 17}ms`}
-                    </span>
-                  </div>
-                  <div className='mt-2 h-1 overflow-hidden rounded-full bg-stone-200 sm:h-1.5 dark:bg-white/10'>
-                    <div
-                      className='h-full rounded-full bg-[#e0764c]'
-                      style={{ width: `${92 - index * 8}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className='min-w-0 bg-[#f6efe4] p-3 sm:p-5 md:p-6 dark:bg-[#151311]'>
-          <div className='grid grid-cols-2 gap-2 sm:gap-3'>
-            <Metric
-              icon={<Route className='size-4' />}
-              label={t('Failover')}
-              value='99.9%'
-            />
-            <Metric
-              icon={<Gauge className='size-4' />}
-              label={t('Latency')}
-              value='124ms'
-            />
-            <Metric
-              icon={<ShieldCheck className='size-4' />}
-              label={t('Keys')}
-              value='AES'
-            />
-            <Metric
-              icon={<Code2 className='size-4' />}
-              label={t('Protocol')}
-              value='OpenAI'
-            />
-          </div>
-
-          <div className='mt-3 rounded-xl border border-stone-300/70 bg-stone-950 p-3 text-stone-100 sm:mt-5 sm:p-4 dark:border-white/10 dark:bg-black/35'>
-            <div className='mb-3 flex items-center gap-2 text-xs text-stone-400'>
-              <CheckCircle2 className='size-3.5 text-emerald-400' />
-              {t('Compatible request')}
-            </div>
-            <pre className='hidden overflow-hidden font-mono text-[12px] leading-6 whitespace-pre-wrap text-stone-300 sm:block'>
-              <code>{`curl https://api.example.com/v1/chat/completions
-  -H "Authorization: Bearer sk-..."
-  -d '{ "model": "claude-4-sonnet" }'`}</code>
-            </pre>
-            <div className='font-mono text-[11px] leading-5 text-stone-300 sm:hidden'>
-              model: claude-4-sonnet
-            </div>
-          </div>
-
-          <div className='mt-5 hidden gap-2 text-sm sm:grid'>
-            {[
-              t('Transparent Billing'),
-              t('Usage-based requests'),
-              t('Supports mainstream coding tools'),
-            ].map((item) => (
-              <div
-                key={item}
-                className='flex items-center gap-2 text-stone-600 dark:text-stone-300'
-              >
-                <CheckCircle2 className='size-4 text-[#e0764c]' />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function Metric(props: {
-  icon: React.ReactNode
-  label: string
-  value: string
-}) {
-  return (
-    <div className='min-w-0 rounded-xl border border-stone-300/70 bg-white/60 p-2 sm:p-3 dark:border-white/10 dark:bg-white/[0.04]'>
-      <div className='mb-2 flex items-center justify-between gap-1 text-stone-500 sm:mb-3 dark:text-stone-400'>
-        {props.icon}
-        <span className='truncate text-[10px] sm:text-[11px]'>{props.label}</span>
-      </div>
-      <div className='truncate font-mono text-sm font-semibold sm:text-lg'>
-        {props.value}
-      </div>
-    </div>
   )
 }

@@ -683,6 +683,129 @@ For commercial licensing, please contact support@quantumnous.com
 
 }
 
+/* Home routing showcase: modern CSS route tracks with moving light points. */
+.route-edge {
+  position: absolute;
+  top: var(--route-top);
+  left: var(--route-left);
+  width: var(--route-width);
+  height: 2px;
+  transform-origin: 0 50%;
+  pointer-events: none;
+  background: transparent;
+  opacity: 0.74;
+}
+
+.route-edge::before {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgb(157 107 75 / 0.24) 0 10px,
+    transparent 10px 20px
+  );
+  opacity: 0.72;
+}
+
+.route-edge::after {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 0.52rem;
+  height: 0.52rem;
+  content: '';
+  background: var(--route-dot, #e0764c);
+  border-radius: 999px;
+  box-shadow:
+    0 0 0 1px rgb(255 250 242 / 0.55),
+    0 0 14px rgb(224 118 76 / 0.26);
+  transform: translate(-50%, -50%);
+  animation: route-edge-flow var(--route-duration, 3.4s) linear infinite;
+  animation-delay: var(--route-delay, 0s);
+}
+
+.route-edge-openai {
+  --route-top: 30%;
+  --route-left: 21%;
+  --route-width: 33%;
+  transform: rotate(36deg);
+  --route-duration: 3.1s;
+  --route-delay: 0s;
+  --route-dot: #e0764c;
+}
+
+.route-edge-claude {
+  --route-top: 30%;
+  --route-left: 79%;
+  --route-width: 33%;
+  transform: rotate(144deg);
+  --route-duration: 3.3s;
+  --route-delay: 0.5s;
+  --route-dot: #e8b58c;
+}
+
+.route-edge-gemini {
+  --route-top: 70%;
+  --route-left: 32%;
+  --route-width: 22%;
+  transform: rotate(-54deg);
+  --route-duration: 3.8s;
+  --route-delay: 1s;
+  --route-dot: #d6b35f;
+}
+
+@keyframes route-edge-flow {
+  0% {
+    left: 0;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  14% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.35);
+  }
+}
+
+.route-center-logo-wrap {
+  animation: route-center-float 4.6s ease-in-out infinite;
+}
+
+.route-center-logo {
+  animation: route-center-breathe 4.6s ease-in-out infinite;
+}
+
+@keyframes route-center-float {
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 10px 30px -18px rgb(78 52 31 / 0.65);
+  }
+  50% {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px -18px rgb(78 52 31 / 0.78);
+  }
+}
+
+@keyframes route-center-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.96;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
 /* Micro-interactions — Vercel-style subtle hover/active feedback */
 @media (prefers-reduced-motion: no-preference) {
   [data-slot='card'] {

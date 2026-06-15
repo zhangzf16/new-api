@@ -132,6 +132,10 @@ export const STATIC_I18N_KEYS = [
   'Successfully created {{count}} redemption codes',
 
   // Home page (constants-driven labels)
+  'Global acceleration',
+  'Overseas direct',
+  'Overseas CDN',
+  'Status detection',
   'Cost Tracking',
   'Model Access',
   'Guardrails',
