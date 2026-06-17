@@ -28,6 +28,7 @@ import { NoticeSection } from '../maintenance/notice-section'
 import { SidebarModulesSection } from '../maintenance/sidebar-modules-section'
 import type { SiteSettings } from '../types'
 import { createSectionRegistry } from '../utils/section-registry'
+import { AdminVisualThemeSection } from './admin-visual-theme-section'
 
 const SITE_SECTIONS = [
   {
@@ -58,6 +59,23 @@ const SITE_SECTIONS = [
     titleKey: 'System Notice',
     build: (settings: SiteSettings) => (
       <NoticeSection defaultValue={settings.Notice ?? ''} />
+    ),
+  },
+  {
+    id: 'visual-theme',
+    titleKey: 'Visual theme',
+    build: (settings: SiteSettings) => (
+      <AdminVisualThemeSection
+        defaultValues={{
+          theme: {
+            mode: settings['theme.mode'],
+            preset: settings['theme.preset'],
+            font: settings['theme.font'],
+            radius: settings['theme.radius'],
+            scale: settings['theme.scale'],
+          },
+        }}
+      />
     ),
   },
   {

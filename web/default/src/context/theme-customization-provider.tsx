@@ -24,6 +24,8 @@ import {
   useMemo,
   useState,
 } from 'react'
+import { useSystemConfigStore } from '@/stores/system-config-store'
+import { DEFAULT_ADMIN_VISUAL_THEME } from '@/lib/admin-theme-config'
 import { getCookie, removeCookie, setCookie } from '@/lib/cookies'
 import {
   CONTENT_LAYOUT_VALUES,
@@ -96,28 +98,31 @@ const ThemeCustomizationContext =
 export function ThemeCustomizationProvider(props: {
   children: React.ReactNode
 }) {
-  const [preset, _setPreset] = useState<ThemePreset>(() =>
+  const adminCustomization = useSystemConfigStore(
+    (state) => state.config.visualTheme ?? DEFAULT_ADMIN_VISUAL_THEME
+  )
+  const [, _setPreset] = useState<ThemePreset>(() =>
     readCookie<ThemePreset>(
       THEME_COOKIE_KEYS.preset,
       THEME_PRESET_VALUES,
       DEFAULT_THEME_CUSTOMIZATION.preset
     )
   )
-  const [font, _setFont] = useState<ThemeFont>(() =>
+  const [, _setFont] = useState<ThemeFont>(() =>
     readCookie<ThemeFont>(
       THEME_COOKIE_KEYS.font,
       THEME_FONT_VALUES,
       DEFAULT_THEME_CUSTOMIZATION.font
     )
   )
-  const [radius, _setRadius] = useState<ThemeRadius>(() =>
+  const [, _setRadius] = useState<ThemeRadius>(() =>
     readCookie<ThemeRadius>(
       THEME_COOKIE_KEYS.radius,
       THEME_RADIUS_VALUES,
       DEFAULT_THEME_CUSTOMIZATION.radius
     )
   )
-  const [scale, _setScale] = useState<ThemeScale>(() =>
+  const [, _setScale] = useState<ThemeScale>(() =>
     readCookie<ThemeScale>(
       THEME_COOKIE_KEYS.scale,
       THEME_SCALE_VALUES,
@@ -131,15 +136,33 @@ export function ThemeCustomizationProvider(props: {
       DEFAULT_THEME_CUSTOMIZATION.contentLayout
     )
   )
+  const effectiveCustomization = useMemo<ThemeCustomization>(
+    () => ({
+      preset: adminCustomization.preset,
+      font: adminCustomization.font,
+      radius: adminCustomization.radius,
+      scale: adminCustomization.scale,
+      contentLayout,
+    }),
+    [
+      adminCustomization.font,
+      adminCustomization.preset,
+      adminCustomization.radius,
+      adminCustomization.scale,
+      contentLayout,
+    ]
+  )
 
   // Mirror state to the <body> via data-* attributes so theme-presets.css can
   // override CSS variables at the right cascade layer.
   useEffect(() => {
     applyAttribute(
       'data-theme-preset',
-      preset === DEFAULT_THEME_CUSTOMIZATION.preset ? null : preset
+      effectiveCustomization.preset === DEFAULT_THEME_CUSTOMIZATION.preset
+        ? null
+        : effectiveCustomization.preset
     )
-  }, [preset])
+  }, [effectiveCustomization.preset])
 
   // Font is the one axis where we resolve before writing the attribute:
   // the persisted preference may be `default`, but CSS works in terms of
@@ -148,22 +171,29 @@ export function ThemeCustomizationProvider(props: {
   // stylesheet to one simple `[data-theme-font='serif']` selector and lets
   // future presets opt into typography via `PRESET_DEFAULT_FONT` alone.
   useEffect(() => {
-    applyAttribute('data-theme-font', resolveThemeFont(font, preset))
-  }, [font, preset])
+    applyAttribute(
+      'data-theme-font',
+      resolveThemeFont(effectiveCustomization.font, effectiveCustomization.preset)
+    )
+  }, [effectiveCustomization.font, effectiveCustomization.preset])
 
   useEffect(() => {
     applyAttribute(
       'data-theme-radius',
-      radius === DEFAULT_THEME_CUSTOMIZATION.radius ? null : radius
+      effectiveCustomization.radius === DEFAULT_THEME_CUSTOMIZATION.radius
+        ? null
+        : effectiveCustomization.radius
     )
-  }, [radius])
+  }, [effectiveCustomization.radius])
 
   useEffect(() => {
     applyAttribute(
       'data-theme-scale',
-      scale === DEFAULT_THEME_CUSTOMIZATION.scale ? null : scale
+      effectiveCustomization.scale === DEFAULT_THEME_CUSTOMIZATION.scale
+        ? null
+        : effectiveCustomization.scale
     )
-  }, [scale])
+  }, [effectiveCustomization.scale])
 
   useEffect(() => {
     applyAttribute('data-theme-content-layout', contentLayout)
@@ -225,7 +255,7 @@ export function ThemeCustomizationProvider(props: {
   const value = useMemo<ThemeCustomizationContextType>(
     () => ({
       defaults: DEFAULT_THEME_CUSTOMIZATION,
-      customization: { preset, font, radius, scale, contentLayout },
+      customization: effectiveCustomization,
       setPreset,
       setFont,
       setRadius,
@@ -234,11 +264,7 @@ export function ThemeCustomizationProvider(props: {
       resetCustomization,
     }),
     [
-      preset,
-      font,
-      radius,
-      scale,
-      contentLayout,
+      effectiveCustomization,
       setPreset,
       setFont,
       setRadius,

@@ -42,6 +42,7 @@ func TestStatus(c *gin.Context) {
 func GetStatus(c *gin.Context) {
 
 	cs := console_setting.GetConsoleSetting()
+	themeSetting := system_setting.GetThemeSettings()
 	common.OptionMapRWMutex.RLock()
 	defer common.OptionMapRWMutex.RUnlock()
 
@@ -61,7 +62,12 @@ func GetStatus(c *gin.Context) {
 		"linuxdo_minimum_trust_level": common.LinuxDOMinimumTrustLevel,
 		"telegram_oauth":              common.TelegramOAuthEnabled,
 		"telegram_bot_name":           common.TelegramBotName,
-		"theme":                       system_setting.GetThemeSettings().Frontend,
+		"theme":                       themeSetting.Frontend,
+		"theme_mode":                  themeSetting.Mode,
+		"theme_preset":                themeSetting.Preset,
+		"theme_font":                  themeSetting.Font,
+		"theme_radius":                themeSetting.Radius,
+		"theme_scale":                 themeSetting.Scale,
 		"system_name":                 common.SystemName,
 		"logo":                        common.Logo,
 		"footer_html":                 common.Footer,

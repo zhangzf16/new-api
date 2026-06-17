@@ -223,6 +223,46 @@ func UpdateOption(c *gin.Context) {
 			})
 			return
 		}
+	case "theme.mode":
+		if !system_setting.IsValidThemeMode(option.Value.(string)) {
+			c.JSON(http.StatusOK, gin.H{
+				"success": false,
+				"message": "无效的主题模式，可选值：system、light、dark",
+			})
+			return
+		}
+	case "theme.preset":
+		if !system_setting.IsValidThemePreset(option.Value.(string)) {
+			c.JSON(http.StatusOK, gin.H{
+				"success": false,
+				"message": "无效的颜色预设",
+			})
+			return
+		}
+	case "theme.font":
+		if !system_setting.IsValidThemeFont(option.Value.(string)) {
+			c.JSON(http.StatusOK, gin.H{
+				"success": false,
+				"message": "无效的字体设置，可选值：default、sans、serif",
+			})
+			return
+		}
+	case "theme.radius":
+		if !system_setting.IsValidThemeRadius(option.Value.(string)) {
+			c.JSON(http.StatusOK, gin.H{
+				"success": false,
+				"message": "无效的圆角设置",
+			})
+			return
+		}
+	case "theme.scale":
+		if !system_setting.IsValidThemeScale(option.Value.(string)) {
+			c.JSON(http.StatusOK, gin.H{
+				"success": false,
+				"message": "无效的密度设置",
+			})
+			return
+		}
 	case "GroupRatio":
 		err = ratio_setting.CheckGroupRatio(option.Value.(string))
 		if err != nil {

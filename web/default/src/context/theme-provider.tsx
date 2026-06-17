@@ -24,6 +24,8 @@ import {
   useMemo,
   useState,
 } from 'react'
+import { useSystemConfigStore } from '@/stores/system-config-store'
+import { DEFAULT_ADMIN_VISUAL_THEME } from '@/lib/admin-theme-config'
 import { getCookie, setCookie, removeCookie } from '@/lib/cookies'
 
 type Theme = 'dark' | 'light' | 'system'
@@ -80,21 +82,29 @@ export function ThemeProvider({
   storageKey = THEME_COOKIE_NAME,
   ...props
 }: ThemeProviderProps) {
-  const [theme, _setTheme] = useState<Theme>(() =>
+  const adminTheme = useSystemConfigStore(
+    (state) => state.config.visualTheme?.mode ?? DEFAULT_ADMIN_VISUAL_THEME.mode
+  )
+  const [, _setTheme] = useState<Theme>(() =>
     getStoredTheme(storageKey, defaultTheme)
   )
   const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() =>
-    resolveTheme(getStoredTheme(storageKey, defaultTheme))
+    resolveTheme(adminTheme)
   )
+  const effectiveTheme = adminTheme
 
   useEffect(() => {
     const root = window.document.documentElement
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
     const applyTheme = () => {
-      const nextResolvedTheme = theme === 'system' ? getSystemTheme() : theme
+      const nextResolvedTheme =
+        effectiveTheme === 'system' ? getSystemTheme() : effectiveTheme
       root.classList.remove('light', 'dark')
       root.classList.add(nextResolvedTheme)
+      const themeColor = nextResolvedTheme === 'dark' ? '#020817' : '#fff'
+      const metaThemeColor = document.querySelector("meta[name='theme-color']")
+      if (metaThemeColor) metaThemeColor.setAttribute('content', themeColor)
       setResolvedTheme(nextResolvedTheme)
     }
 
@@ -103,7 +113,7 @@ export function ThemeProvider({
     mediaQuery.addEventListener('change', applyTheme)
 
     return () => mediaQuery.removeEventListener('change', applyTheme)
-  }, [theme])
+  }, [effectiveTheme])
 
   const setTheme = useCallback(
     (theme: Theme) => {
@@ -123,10 +133,10 @@ export function ThemeProvider({
       defaultTheme,
       resolvedTheme,
       resetTheme,
-      theme,
+      theme: effectiveTheme,
       setTheme,
     }),
-    [defaultTheme, resolvedTheme, resetTheme, theme, setTheme]
+    [defaultTheme, effectiveTheme, resolvedTheme, resetTheme, setTheme]
   )
 
   return (

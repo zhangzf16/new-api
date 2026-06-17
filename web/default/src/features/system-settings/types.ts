@@ -58,6 +58,11 @@ export type DeleteLogsResponse = {
 
 export type SiteSettings = {
   'theme.frontend': string
+  'theme.mode': string
+  'theme.preset': string
+  'theme.font': string
+  'theme.radius': string
+  'theme.scale': string
   Notice: string
   SystemName: string
   Logo: string

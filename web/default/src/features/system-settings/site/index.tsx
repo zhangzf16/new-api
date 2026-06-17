@@ -23,9 +23,15 @@ import {
   getSiteSectionContent,
   getSiteSectionMeta,
 } from './section-registry.tsx'
+import { defaultVisualThemeFormValues } from './admin-visual-theme-section'
 
 const defaultSiteSettings: SiteSettings = {
   'theme.frontend': 'default',
+  'theme.mode': defaultVisualThemeFormValues.theme.mode,
+  'theme.preset': defaultVisualThemeFormValues.theme.preset,
+  'theme.font': defaultVisualThemeFormValues.theme.font,
+  'theme.radius': defaultVisualThemeFormValues.theme.radius,
+  'theme.scale': defaultVisualThemeFormValues.theme.scale,
   Notice: '',
   SystemName: 'New API',
   Logo: '',

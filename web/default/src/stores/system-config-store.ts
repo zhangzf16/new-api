@@ -18,6 +18,10 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
+import {
+  DEFAULT_ADMIN_VISUAL_THEME,
+  type AdminVisualThemeConfig,
+} from '@/lib/admin-theme-config'
 import { DEFAULT_SYSTEM_NAME, DEFAULT_LOGO } from '@/lib/constants'
 
 export type CurrencyDisplayType = 'USD' | 'CNY' | 'TOKENS' | 'CUSTOM'
@@ -44,6 +48,7 @@ export interface SystemConfig {
   demoSiteEnabled?: boolean
   displayTokenStatEnabled?: boolean
   currency: CurrencyConfig
+  visualTheme: AdminVisualThemeConfig
 }
 
 export const DEFAULT_CURRENCY_CONFIG: CurrencyConfig = {
@@ -75,6 +80,7 @@ export const useSystemConfigStore = create<SystemConfigState>()(
         systemName: DEFAULT_SYSTEM_NAME,
         logo: DEFAULT_LOGO,
         currency: { ...DEFAULT_CURRENCY_CONFIG },
+        visualTheme: { ...DEFAULT_ADMIN_VISUAL_THEME },
       },
       loading: true,
       loadedLogoUrl: DEFAULT_LOGO,
@@ -86,6 +92,11 @@ export const useSystemConfigStore = create<SystemConfigState>()(
             currency: {
               ...state.config.currency,
               ...(newConfig.currency ?? {}),
+            },
+            visualTheme: {
+              ...DEFAULT_ADMIN_VISUAL_THEME,
+              ...(state.config.visualTheme ?? {}),
+              ...(newConfig.visualTheme ?? {}),
             },
           },
         })),
