@@ -51,14 +51,14 @@ type themeAwareFileSystem struct {
 }
 
 func (t *themeAwareFileSystem) Exists(prefix string, path string) bool {
-	if GetTheme() == "classic" {
+	if GetTheme() == "classic" && t.classicFS != nil {
 		return t.classicFS.Exists(prefix, path)
 	}
 	return t.defaultFS.Exists(prefix, path)
 }
 
 func (t *themeAwareFileSystem) Open(name string) (http.File, error) {
-	if GetTheme() == "classic" {
+	if GetTheme() == "classic" && t.classicFS != nil {
 		return t.classicFS.Open(name)
 	}
 	return t.defaultFS.Open(name)

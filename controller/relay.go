@@ -303,7 +303,18 @@ func getChannel(c *gin.Context, info *relaycommon.RelayInfo, retryParam *service
 			AutoBan: &autoBanInt,
 		}, nil
 	}
-	channel, selectGroup, err := service.CacheGetRandomSatisfiedChannel(retryParam)
+	var channel *model.Channel
+	var selectGroup string
+	var err error
+	merchantId := common.GetContextKeyInt(c, constant.ContextKeyMerchantId)
+	if merchantId > 0 {
+		selectGroup = "default"
+		info.UsingGroup = selectGroup
+		common.SetContextKey(c, constant.ContextKeyUsingGroup, selectGroup)
+		channel, err = model.GetMerchantChannel(selectGroup, info.OriginModelName, retryParam.GetRetry(), merchantId)
+	} else {
+		channel, selectGroup, err = service.CacheGetRandomSatisfiedChannel(retryParam)
+	}
 
 	info.PriceData.GroupRatioInfo = helper.HandleGroupRatio(c, info)
 

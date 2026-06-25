@@ -41,6 +41,10 @@ func HandleGroupRatio(ctx *gin.Context, relayInfo *relaycommon.RelayInfo) types.
 		GroupRatio:        1.0, // default ratio
 		GroupSpecialRatio: -1,
 	}
+	if relayInfo != nil && relayInfo.MerchantId > 0 {
+		relayInfo.UsingGroup = "default"
+		return groupRatioInfo
+	}
 
 	// check auto group
 	autoGroup, exists := ctx.Get("auto_group")
@@ -66,11 +70,15 @@ func HandleGroupRatio(ctx *gin.Context, relayInfo *relaycommon.RelayInfo) types.
 
 func ModelPriceHelper(c *gin.Context, info *relaycommon.RelayInfo, promptTokens int, meta *types.TokenCountMeta) (types.PriceData, error) {
 	modelPrice, usePrice := ratio_setting.GetModelPrice(info.OriginModelName, false)
+	merchantPrice, hasMerchantPrice, err := model.GetMerchantModelPrice(info.MerchantId, info.OriginModelName)
+	if err != nil {
+		return types.PriceData{}, err
+	}
 
 	groupRatioInfo := HandleGroupRatio(c, info)
 
 	// Check if this model uses tiered_expr billing
-	if billing_setting.GetBillingMode(info.OriginModelName) == billing_setting.BillingModeTieredExpr {
+	if !hasMerchantPrice && billing_setting.GetBillingMode(info.OriginModelName) == billing_setting.BillingModeTieredExpr {
 		return modelPriceHelperTiered(c, info, promptTokens, meta, groupRatioInfo)
 	}
 
@@ -85,7 +93,13 @@ func ModelPriceHelper(c *gin.Context, info *relaycommon.RelayInfo, promptTokens 
 	var audioRatio float64
 	var audioCompletionRatio float64
 	var freeModel bool
-	if !usePrice {
+	if hasMerchantPrice && merchantPrice.ModelPrice >= 0 {
+		modelPrice = merchantPrice.ModelPrice
+		usePrice = true
+	} else if hasMerchantPrice && merchantPrice.ModelRatio >= 0 {
+		modelRatio = merchantPrice.ModelRatio
+		usePrice = false
+	} else if !usePrice {
 		preConsumedTokens := common.Max(promptTokens, common.PreConsumedQuota)
 		if meta.MaxTokens != 0 {
 			preConsumedTokens += meta.MaxTokens
@@ -102,15 +116,44 @@ func ModelPriceHelper(c *gin.Context, info *relaycommon.RelayInfo, promptTokens 
 				return types.PriceData{}, modelPriceNotConfiguredError(matchName, info.UserId)
 			}
 		}
-		completionRatio = ratio_setting.GetCompletionRatio(info.OriginModelName)
+	}
+	if !usePrice {
+		if completionRatio == 0 {
+			completionRatio = ratio_setting.GetCompletionRatio(info.OriginModelName)
+		}
 		cacheRatio, _ = ratio_setting.GetCacheRatio(info.OriginModelName)
 		cacheCreationRatio, _ = ratio_setting.GetCreateCacheRatio(info.OriginModelName)
 		cacheCreationRatio5m = cacheCreationRatio
-		// 固定1h和5min缓存写入价格的比例
 		cacheCreationRatio1h = cacheCreationRatio * claudeCacheCreation1hMultiplier
 		imageRatio, _ = ratio_setting.GetImageRatio(info.OriginModelName)
 		audioRatio = ratio_setting.GetAudioRatio(info.OriginModelName)
 		audioCompletionRatio = ratio_setting.GetAudioCompletionRatio(info.OriginModelName)
+		if hasMerchantPrice {
+			if merchantPrice.CompletionRatio >= 0 {
+				completionRatio = merchantPrice.CompletionRatio
+			}
+			if merchantPrice.CacheRatio >= 0 {
+				cacheRatio = merchantPrice.CacheRatio
+			}
+			if merchantPrice.CacheCreationRatio >= 0 {
+				cacheCreationRatio = merchantPrice.CacheCreationRatio
+				cacheCreationRatio5m = cacheCreationRatio
+				cacheCreationRatio1h = cacheCreationRatio * claudeCacheCreation1hMultiplier
+			}
+			if merchantPrice.ImageRatio >= 0 {
+				imageRatio = merchantPrice.ImageRatio
+			}
+			if merchantPrice.AudioRatio >= 0 {
+				audioRatio = merchantPrice.AudioRatio
+			}
+			if merchantPrice.AudioCompletionRatio >= 0 {
+				audioCompletionRatio = merchantPrice.AudioCompletionRatio
+			}
+		}
+		preConsumedTokens := common.Max(promptTokens, common.PreConsumedQuota)
+		if meta.MaxTokens != 0 {
+			preConsumedTokens += meta.MaxTokens
+		}
 		ratio := common.ApplyModelRatioBillingSurcharge(modelRatio) * groupRatioInfo.GroupRatio
 		preConsumedQuota = int(float64(preConsumedTokens) * ratio)
 	} else {
@@ -170,6 +213,20 @@ func ModelPriceHelperPerCall(c *gin.Context, info *relaycommon.RelayInfo) (types
 	modelPrice, success := ratio_setting.GetModelPrice(info.OriginModelName, true)
 	usePrice := success
 	var modelRatio float64
+	merchantPrice, hasMerchantPrice, err := model.GetMerchantModelPrice(info.MerchantId, info.OriginModelName)
+	if err != nil {
+		return types.PriceData{}, err
+	}
+
+	if hasMerchantPrice && merchantPrice.ModelPrice >= 0 {
+		modelPrice = merchantPrice.ModelPrice
+		usePrice = true
+		success = true
+	} else if hasMerchantPrice && merchantPrice.ModelRatio >= 0 {
+		modelRatio = merchantPrice.ModelRatio
+		usePrice = false
+		success = true
+	}
 
 	if !success {
 		defaultPrice, ok := ratio_setting.GetDefaultModelPriceMap()[info.OriginModelName]

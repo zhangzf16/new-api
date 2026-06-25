@@ -61,8 +61,8 @@
           "to": "bin/new-api"
         },
         {
-          "from": "../web/dist",
-          "to": "web/dist"
+          "from": "../web/default/dist",
+          "to": "web/default/dist"
         },
         {
           "from": "../LICENSE",

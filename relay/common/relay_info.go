@@ -89,6 +89,7 @@ type RelayInfo struct {
 	TokenId           int
 	TokenKey          string
 	TokenGroup        string
+	MerchantId        int
 	UserId            int
 	UsingGroup        string // 使用的分组，当auto跨分组重试时，会变动
 	UserGroup         string // 用户所在分组
@@ -264,7 +265,7 @@ func (info *RelayInfo) ToString() string {
 	// User & token info (mask secrets)
 	fmt.Fprintf(b, "User{ Id: %d, Email: %q, Group: %q, UsingGroup: %q, Quota: %d }, ",
 		info.UserId, common.MaskEmail(info.UserEmail), info.UserGroup, info.UsingGroup, info.UserQuota)
-	fmt.Fprintf(b, "Token{ Id: %d, Unlimited: %t, Key: ***masked*** }, ", info.TokenId, info.TokenUnlimited)
+	fmt.Fprintf(b, "Token{ Id: %d, Unlimited: %t, MerchantId: %d, Key: ***masked*** }, ", info.TokenId, info.TokenUnlimited, info.MerchantId)
 
 	// Time info
 	latencyMs := info.FirstResponseTime.Sub(info.StartTime).Milliseconds()
@@ -476,6 +477,7 @@ func genBaseRelayInfo(c *gin.Context, request dto.Request) *RelayInfo {
 		TokenKey:       common.GetContextKeyString(c, constant.ContextKeyTokenKey),
 		TokenUnlimited: common.GetContextKeyBool(c, constant.ContextKeyTokenUnlimited),
 		TokenGroup:     tokenGroup,
+		MerchantId:     common.GetContextKeyInt(c, constant.ContextKeyMerchantId),
 
 		isFirstResponse: true,
 		RelayMode:       relayconstant.Path2RelayMode(c.Request.URL.Path),

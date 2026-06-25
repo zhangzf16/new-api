@@ -436,6 +436,17 @@ func SetupContextForToken(c *gin.Context, token *model.Token, parts ...string) e
 	}
 	common.SetContextKey(c, constant.ContextKeyTokenGroup, token.Group)
 	common.SetContextKey(c, constant.ContextKeyTokenCrossGroupRetry, token.CrossGroupRetry)
+	if binding, found, err := model.GetActiveMerchantTokenBinding(token.Id); err != nil {
+		common.SysLog("SetupContextForToken GetActiveMerchantTokenBinding database error: " + err.Error())
+		abortWithOpenAiMessage(c, http.StatusInternalServerError, common.TranslateMessage(c, i18n.MsgDatabaseError))
+		return err
+	} else if found {
+		if err := model.ValidateMerchantEnabled(binding.MerchantId); err != nil {
+			abortWithOpenAiMessage(c, http.StatusForbidden, err.Error())
+			return err
+		}
+		common.SetContextKey(c, constant.ContextKeyMerchantId, binding.MerchantId)
+	}
 	if len(parts) > 1 {
 		if model.IsAdmin(token.UserId) {
 			c.Set("specific_channel_id", parts[1])

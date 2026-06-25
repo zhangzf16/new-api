@@ -281,8 +281,16 @@ func migrateDB() error {
 		&CustomOAuthProvider{},
 		&UserOAuthBinding{},
 		&PerfMetric{},
+		&Merchant{},
+		&MerchantChannel{},
+		&MerchantTokenBinding{},
+		&MerchantModelPrice{},
+		&MerchantSettlement{},
 	)
 	if err != nil {
+		return err
+	}
+	if err := migrateMerchantChannelSchema(); err != nil {
 		return err
 	}
 	if common.UsingSQLite {
@@ -330,6 +338,11 @@ func migrateDBFast() error {
 		{&CustomOAuthProvider{}, "CustomOAuthProvider"},
 		{&UserOAuthBinding{}, "UserOAuthBinding"},
 		{&PerfMetric{}, "PerfMetric"},
+		{&Merchant{}, "Merchant"},
+		{&MerchantChannel{}, "MerchantChannel"},
+		{&MerchantTokenBinding{}, "MerchantTokenBinding"},
+		{&MerchantModelPrice{}, "MerchantModelPrice"},
+		{&MerchantSettlement{}, "MerchantSettlement"},
 	}
 	// 动态计算migration数量，确保errChan缓冲区足够大
 	errChan := make(chan error, len(migrations))
@@ -363,8 +376,21 @@ func migrateDBFast() error {
 			return err
 		}
 	}
+	if err := migrateMerchantChannelSchema(); err != nil {
+		return err
+	}
 	common.SysLog("database migrated")
 	return nil
+}
+
+func migrateMerchantChannelSchema() error {
+	if !DB.Migrator().HasColumn(&MerchantChannel{}, "channel_id") {
+		return nil
+	}
+	if err := DB.Migrator().DropTable(&MerchantChannel{}); err != nil {
+		return err
+	}
+	return DB.AutoMigrate(&MerchantChannel{})
 }
 
 func migrateLOGDB() error {

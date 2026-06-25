@@ -28,6 +28,7 @@ import {
   MessageSquare,
   Radio,
   Settings,
+  Store,
   Ticket,
   User,
   Users,
@@ -106,6 +107,11 @@ export function useSidebarData(): SidebarData {
             icon: Wallet,
           },
           {
+            title: t('Merchant Center'),
+            url: '/merchant-center',
+            icon: Store,
+          },
+          {
             title: t('Profile'),
             url: '/profile',
             icon: User,
@@ -140,6 +146,11 @@ export function useSidebarData(): SidebarData {
             title: t('Subscription Management'),
             url: '/subscriptions',
             icon: CreditCard,
+          },
+          {
+            title: t('Merchant Admin'),
+            url: '/merchant-admin',
+            icon: Store,
           },
           {
             title: t('System Settings'),

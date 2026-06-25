@@ -4,9 +4,13 @@ set -e
 
 echo "Building New API Electron App..."
 
-echo "Step 1: Building frontend..."
+echo "Step 1: Building frontend themes..."
 cd ../web
+bun install --frozen-lockfile
+cd default
 DISABLE_ESLINT_PLUGIN='true' bun run build
+cd ../classic
+bun run build
 cd ../electron
 
 echo "Step 2: Building Go backend..."

@@ -8,6 +8,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig(({ envMode }) => {
   const env = loadEnv({ mode: envMode, prefixes: ['VITE_'] })
+  const devServerPort = Number(
+    process.env.DEV_FRONTEND_DEFAULT_PORT ||
+      process.env.FRONTEND_PORT ||
+      5173,
+  )
   const serverUrl =
     process.env.VITE_REACT_APP_SERVER_URL ||
     env.rawPublicVars.VITE_REACT_APP_SERVER_URL ||
@@ -65,7 +70,8 @@ export default defineConfig(({ envMode }) => {
     },
     server: {
       host: '0.0.0.0',
-      strictPort: false,
+      port: devServerPort,
+      strictPort: true,
       proxy: devProxy,
     },
     output: {
