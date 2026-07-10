@@ -144,8 +144,8 @@ jobs:
 
       - name: Sign manifests with cosign
         run: |
-          cosign sign --yes calciumion/new-api:${TAG}
-          cosign sign --yes calciumion/new-api:latest
+          cosign sign --yes ${DOCKER_IMAGE}:${TAG}
+          cosign sign --yes ${DOCKER_IMAGE}:latest
 
       - name: Manifest summary
         run: |
