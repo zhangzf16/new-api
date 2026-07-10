@@ -226,7 +226,6 @@ function isLikelyUntranslated({ locale, baseValue, value }) {
 
   // For locales with non-latin scripts, equality with EN is a strong signal.
   if (locale === 'zh' || locale === 'zh-TW') return true
-
   return false
 }
 
