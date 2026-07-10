@@ -17,10 +17,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { useLocation, useNavigate } from '@tanstack/react-router'
-import { ArrowRight, ChevronRight, Laptop, Moon, Sun } from 'lucide-react'
+import { ArrowRight, ChevronRight } from 'lucide-react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-
 
 import {
   Command,
@@ -32,7 +31,6 @@ import {
   CommandList,
 } from '@/components/ui/command'
 import { useSearch } from '@/context/search-provider'
-import { useTheme } from '@/context/theme-provider'
 import { useSidebarData } from '@/hooks/use-sidebar-data'
 
 import { getNavGroupsForPath } from './layout/lib/sidebar-view-registry'

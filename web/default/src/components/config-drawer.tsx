@@ -29,12 +29,12 @@ import { IconLayoutFull } from '@/assets/custom/icon-layout-full'
 import { IconSidebarFloating } from '@/assets/custom/icon-sidebar-floating'
 import { IconSidebarInset } from '@/assets/custom/icon-sidebar-inset'
 import { IconSidebarSidebar } from '@/assets/custom/icon-sidebar-sidebar'
-import { type ContentLayout } from '@/lib/theme-customization'
-import { cn } from '@/lib/utils'
-import { useDirection } from '@/context/direction-provider'
-import { type Collapsible, useLayout } from '@/context/layout-provider'
-import { useThemeCustomization } from '@/context/theme-customization-provider'
-import { useTheme } from '@/context/theme-provider'
+import {
+  sideDrawerContentClassName,
+  sideDrawerFooterClassName,
+  sideDrawerFormClassName,
+  sideDrawerHeaderClassName,
+} from '@/components/drawer-layout'
 import { Button } from '@/components/ui/button'
 import {
   Sheet,
@@ -49,14 +49,7 @@ import { useDirection } from '@/context/direction-provider'
 import { type Collapsible, useLayout } from '@/context/layout-provider'
 import { useThemeCustomization } from '@/context/theme-customization-provider'
 import { useTheme } from '@/context/theme-provider'
-import {
-  type ContentLayout,
-  THEME_PRESETS,
-  type ThemeFont,
-  type ThemePreset,
-  type ThemeRadius,
-  type ThemeScale,
-} from '@/lib/theme-customization'
+import { type ContentLayout } from '@/lib/theme-customization'
 import { cn } from '@/lib/utils'
 
 import { useSidebar } from './ui/sidebar'

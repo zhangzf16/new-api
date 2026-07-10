@@ -302,7 +302,7 @@ func RecalculateTaskQuotaByTokens(ctx context.Context, task *model.Task, totalTo
 	}
 
 	// 计算实际应扣费额度: totalTokens * billingModelRatio * groupRatio * otherMultiplier
-	actualQuota := int(float64(totalTokens) * common.ApplyModelRatioBillingSurcharge(modelRatio) * finalGroupRatio * otherMultiplier)
+	actualQuota, clamp := common.QuotaFromFloatChecked(float64(totalTokens) * common.ApplyModelRatioBillingSurcharge(modelRatio) * finalGroupRatio * otherMultiplier)
 
 	reason := fmt.Sprintf("token重算：tokens=%d, modelRatio=%.2f, groupRatio=%.2f, otherMultiplier=%.4f", totalTokens, modelRatio, finalGroupRatio, otherMultiplier)
 	RecalculateTaskQuota(ctx, task, actualQuota, reason, clamp)
