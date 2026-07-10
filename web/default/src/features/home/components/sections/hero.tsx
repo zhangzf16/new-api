@@ -21,11 +21,14 @@ import {
   ArrowRight,
   BookOpen,
 } from 'lucide-react'
+import { CherryStudio } from '@lobehub/icons'
+import { Link } from '@tanstack/react-router'
+import { ArrowRight, BookOpen } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { cn } from '@/lib/utils'
 import { useStatus } from '@/hooks/use-status'
 import { Button } from '@/components/ui/button'
 import { LiveRoutingShowcase } from '../live-routing-showcase'
+import { HeroTerminalDemo } from '../hero-terminal-demo'
 
 interface HeroProps {
   className?: string
