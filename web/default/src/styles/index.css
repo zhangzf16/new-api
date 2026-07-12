@@ -570,7 +570,7 @@ For commercial licensing, please contact support@quantumnous.com
 .hero-brand-name::before,
 .hero-brand-name::after {
   position: absolute;
-  inset: -0.08em -0.12em 0;
+  inset: 0;
   pointer-events: none;
   content: attr(data-text);
 }
