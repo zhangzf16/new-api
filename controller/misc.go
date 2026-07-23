@@ -64,7 +64,7 @@ func GetStatus(c *gin.Context) {
 		"linuxdo_minimum_trust_level": common.LinuxDOMinimumTrustLevel,
 		"telegram_oauth":              common.TelegramOAuthEnabled,
 		"telegram_bot_name":           common.TelegramBotName,
-		"theme":                       themeSetting.Frontend,
+		"theme":                       "default",
 		"theme_mode":                  themeSetting.Mode,
 		"theme_preset":                themeSetting.Preset,
 		"theme_font":                  themeSetting.Font,
