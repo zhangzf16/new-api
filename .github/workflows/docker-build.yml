@@ -1,7 +1,7 @@
 name: Publish Docker image (Multi-arch)
 
 env:
-  DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/new-api
+  DOCKER_IMAGE: zhangzf16/new-api
 
 on:
   push:
