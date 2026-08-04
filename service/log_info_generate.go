@@ -50,6 +50,19 @@ func attachQuotaSaturation(ctx *gin.Context, relayInfo *relaycommon.RelayInfo, o
 		clamp.Op, clamp.Kind, clamp.Original, clamp.Clamped, relayInfo.UserId, relayInfo.OriginModelName))
 }
 
+// consumeLogModelName returns the model that was actually sent upstream.
+// Keep it empty when the upstream model is unavailable rather than showing
+// the client-requested model as if it had been routed upstream.
+func consumeLogModelName(relayInfo *relaycommon.RelayInfo) string {
+	if relayInfo == nil {
+		return ""
+	}
+	if relayInfo.ChannelMeta != nil && relayInfo.UpstreamModelName != "" {
+		return relayInfo.UpstreamModelName
+	}
+	return ""
+}
+
 func appendRequestPath(ctx *gin.Context, relayInfo *relaycommon.RelayInfo, other map[string]interface{}) {
 	if other == nil {
 		return

@@ -311,6 +311,7 @@ func TestRefundTaskQuota_Wallet(t *testing.T) {
 	seedChannel(t, channelID)
 
 	task := makeTask(userID, channelID, preConsumed, tokenID, BillingSourceWallet, 0)
+	task.Properties.UpstreamModelName = "upstream-test-model"
 	require.NoError(t, model.DB.Create(task).Error)
 
 	assert.True(t, RefundTaskQuota(ctx, task, "task failed: upstream error"))
@@ -327,7 +328,7 @@ func TestRefundTaskQuota_Wallet(t *testing.T) {
 	require.NotNil(t, log)
 	assert.Equal(t, model.LogTypeRefund, log.Type)
 	assert.Equal(t, preConsumed, log.Quota)
-	assert.Equal(t, "test-model", log.ModelName)
+	assert.Equal(t, "upstream-test-model", log.ModelName)
 	assert.Zero(t, task.Quota)
 	assert.Zero(t, getTaskQuota(t, task.ID))
 }
