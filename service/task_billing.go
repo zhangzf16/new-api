@@ -143,20 +143,12 @@ func taskBillingContextPriceData(bc *model.TaskBillingContext) *types.PriceData 
 	return priceData
 }
 
-// taskBillingModelName returns the client-requested model used for pricing.
-func taskBillingModelName(task *model.Task) string {
+// taskOriginModelName returns the client-requested model used for pricing and logs.
+func taskOriginModelName(task *model.Task) string {
 	if bc := task.PrivateData.BillingContext; bc != nil && bc.OriginModelName != "" {
 		return bc.OriginModelName
 	}
 	return task.Properties.OriginModelName
-}
-
-// taskLogModelName returns the model that was actually sent upstream.
-func taskLogModelName(task *model.Task) string {
-	if task.Properties.UpstreamModelName != "" {
-		return task.Properties.UpstreamModelName
-	}
-	return ""
 }
 
 // RefundTaskQuota 统一的任务失败退款逻辑。
@@ -186,7 +178,7 @@ func RefundTaskQuota(ctx context.Context, task *model.Task, reason string) bool 
 		LogType:   model.LogTypeRefund,
 		Content:   "",
 		ChannelId: task.ChannelId,
-		ModelName: taskLogModelName(task),
+		ModelName: taskOriginModelName(task),
 		Quota:     quota,
 		TokenId:   task.PrivateData.TokenId,
 		Group:     task.Group,
@@ -264,7 +256,7 @@ func RecalculateTaskQuota(ctx context.Context, task *model.Task, actualQuota int
 		LogType:   logType,
 		Content:   reason,
 		ChannelId: task.ChannelId,
-		ModelName: taskLogModelName(task),
+		ModelName: taskOriginModelName(task),
 		Quota:     logQuota,
 		TokenId:   task.PrivateData.TokenId,
 		Group:     task.Group,
@@ -281,7 +273,7 @@ func RecalculateTaskQuotaByTokens(ctx context.Context, task *model.Task, totalTo
 		return
 	}
 
-	modelName := taskBillingModelName(task)
+	modelName := taskOriginModelName(task)
 
 	// 获取模型价格和倍率
 	modelRatio, hasRatioSetting, _ := ratio_setting.GetModelRatio(modelName)

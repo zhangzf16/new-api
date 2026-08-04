@@ -14,19 +14,19 @@ func TestConsumeLogModelName(t *testing.T) {
 		want string
 	}{
 		{
-			name: "mapped request uses upstream model",
+			name: "mapped request keeps origin model",
 			info: &relaycommon.RelayInfo{
 				OriginModelName: "client-model",
 				ChannelMeta: &relaycommon.ChannelMeta{
 					UpstreamModelName: "provider-model",
 				},
 			},
-			want: "provider-model",
+			want: "client-model",
 		},
 		{
-			name: "missing upstream model stays empty",
+			name: "request without channel metadata uses origin model",
 			info: &relaycommon.RelayInfo{OriginModelName: "client-model"},
-			want: "",
+			want: "client-model",
 		},
 		{
 			name: "nil relay info",

@@ -328,7 +328,7 @@ func TestRefundTaskQuota_Wallet(t *testing.T) {
 	require.NotNil(t, log)
 	assert.Equal(t, model.LogTypeRefund, log.Type)
 	assert.Equal(t, preConsumed, log.Quota)
-	assert.Equal(t, "upstream-test-model", log.ModelName)
+	assert.Equal(t, "test-model", log.ModelName)
 	assert.Zero(t, task.Quota)
 	assert.Zero(t, getTaskQuota(t, task.ID))
 }
