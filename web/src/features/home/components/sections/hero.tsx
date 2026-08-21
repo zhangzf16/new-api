@@ -16,14 +16,18 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
+import {
+  ArrowRight01Icon,
+  BookOpen01Icon,
+  CheckmarkCircle02Icon,
+} from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import { Link } from '@tanstack/react-router'
-import { ArrowRight, BookOpen } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 import { Button } from '@/components/ui/button'
 import { useStatus } from '@/hooks/use-status'
 import { cn } from '@/lib/utils'
-import { LiveRoutingShowcase } from '../live-routing-showcase'
 
 interface HeroProps {
   className?: string
@@ -37,135 +41,122 @@ export function Hero(props: HeroProps) {
   const { status } = useStatus()
   const docsUrl =
     (status?.docs_link as string | undefined) || 'https://docs.newapi.pro'
-
-  const renderDocsButton = () => {
-    const isExternal = docsUrl.startsWith('http')
-    const className =
-      'h-11 flex-1 rounded-lg border-stone-300/70 bg-white/55 px-4 text-sm text-stone-800 shadow-xs hover:bg-white/85 sm:flex-none sm:px-5 dark:border-white/10 dark:bg-white/[0.04] dark:text-stone-100 dark:hover:bg-white/[0.08]'
-
-    if (isExternal) {
-      return (
-        <Button
-          variant='outline'
-          className={className}
-          render={
-            <a href={docsUrl} target='_blank' rel='noopener noreferrer' />
-          }
-        >
-          <BookOpen className='size-4' />
-          {t('Docs')}
-        </Button>
-      )
-    }
-
-    return (
-      <Button
-        variant='outline'
-        className={className}
-        render={<Link to={docsUrl} />}
-      >
-        <BookOpen className='size-4' />
-        {t('Docs')}
-      </Button>
-    )
-  }
+  const docsIsExternal = docsUrl.startsWith('http')
 
   return (
     <section
       className={cn(
-        'relative isolate overflow-hidden px-4 pt-22 pb-10 sm:px-5 md:pt-30 md:pb-16',
-        'bg-[#f7f2ea] text-stone-950 dark:bg-[#141210] dark:text-stone-50',
+        'bg-[#f7f3ee] px-5 pt-28 pb-16 text-[#2f2a26] sm:px-6 sm:pt-32 sm:pb-20 lg:pt-24 lg:pb-20 dark:bg-[#171412] dark:text-[#f5efe8]',
         props.className
       )}
     >
-      <div
-        aria-hidden
-        className='absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(120,96,70,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(120,96,70,0.1)_1px,transparent_1px)] bg-[size:64px_64px] opacity-45 dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)]'
-      />
-      <div
-        aria-hidden
-        className='absolute inset-x-0 top-0 -z-10 h-72 bg-[linear-gradient(180deg,rgba(224,118,76,0.16),transparent)] dark:bg-[linear-gradient(180deg,rgba(224,118,76,0.12),transparent)]'
-      />
+      <div className='mx-auto grid max-w-7xl lg:min-h-[640px] lg:grid-cols-[minmax(0,1.25fr)_minmax(20rem,0.75fr)] lg:items-center lg:gap-20 xl:gap-28'>
+        <div className='max-w-3xl text-left'>
+          <div className='landing-animate-fade-up inline-flex items-center gap-2 rounded-full border border-[#d8cec3] bg-[#efe8df] px-3 py-1.5 text-sm font-medium opacity-0 dark:border-[#3a342f] dark:bg-[#211d1a]'>
+            <img
+              src={props.brandLogo}
+              alt=''
+              className='size-5 rounded-md object-contain'
+            />
+            <span>{props.brandName}</span>
+          </div>
 
-      <div className='mx-auto flex max-w-6xl flex-col items-center'>
-        <div
-          className='landing-animate-fade-up flex max-w-full items-center gap-3 rounded-full border border-stone-300/70 bg-white/55 px-3 py-1.5 text-xs font-medium text-stone-700 opacity-0 shadow-xs backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.04] dark:text-stone-300'
-          style={{ animationDelay: '0ms' }}
-        >
-          <img
-            src={props.brandLogo}
-            alt={props.brandName}
-            className='size-6 rounded-md object-cover'
-          />
-          <span className='min-w-0 truncate'>
-            {t('{{name}} · AI relay platform', { name: props.brandName })}
-          </span>
-        </div>
-
-        <div
-          className='landing-animate-fade-up mt-8 max-w-4xl text-center opacity-0'
-          style={{ animationDelay: '80ms' }}
-        >
-          <h1 className='flex flex-col items-center gap-3 leading-none font-semibold tracking-normal'>
-            <span className='hero-brand-shell inline-flex max-w-full'>
-              <span
-                className='hero-brand-name inline-flex max-w-full pb-3 text-[clamp(2.5rem,14vw,5rem)] leading-[1.08] font-black sm:text-6xl md:text-7xl lg:text-8xl'
-                data-text={props.brandName}
-              >
-                {props.brandName}
-              </span>
-            </span>
-            <span className='block max-w-3xl text-[1.375rem] text-balance text-stone-600 [word-break:keep-all] sm:text-4xl md:text-5xl lg:text-6xl dark:text-stone-300'>
-              {t('One calm gateway for every AI model.')}
-            </span>
+          <h1 className='landing-animate-fade-up mt-8 max-w-3xl text-4xl leading-[1.08] font-semibold tracking-[-0.04em] text-balance opacity-0 [animation-delay:70ms] sm:text-6xl lg:text-[4.5rem] xl:text-[5rem]'>
+            {t('Connect every model through one clean API.')}
           </h1>
-          <p className='mx-auto mt-5 max-w-full whitespace-nowrap text-[clamp(0.55rem,2.35vw,0.875rem)] leading-7 text-stone-600 sm:text-base md:mt-6 md:text-lg md:leading-8 dark:text-stone-300'>
+
+          <p className='landing-animate-fade-up mt-6 max-w-xl text-base leading-7 text-pretty text-[#6f655d] opacity-0 [animation-delay:140ms] sm:text-lg sm:leading-8 dark:text-[#b9afa5]'>
             {t(
-              'Unlock creative potential and boost development efficiency. A next-generation intelligent coding experience built for developers, making code writing easier than ever.'
+              'Manage access, route requests, and track usage without the operational clutter.'
             )}
           </p>
+
+          <div className='landing-animate-fade-up mt-9 flex w-full flex-col items-stretch gap-3 opacity-0 [animation-delay:210ms] sm:w-auto sm:flex-row sm:items-center'>
+            <Button
+              size='lg'
+              className='h-11 rounded-xl bg-[#d97757] px-5 text-white shadow-none hover:bg-[#c96849] dark:bg-[#e48768] dark:text-[#1b1714] dark:hover:bg-[#ed9577]'
+              render={
+                <Link to={props.isAuthenticated ? '/dashboard' : '/sign-up'} />
+              }
+            >
+              {props.isAuthenticated
+                ? t('Go to Dashboard')
+                : t('Start routing models')}
+              <HugeiconsIcon
+                icon={ArrowRight01Icon}
+                size={18}
+                strokeWidth={2}
+              />
+            </Button>
+            <Button
+              size='lg'
+              variant='outline'
+              className='h-11 rounded-xl border-[#cfc3b7] bg-transparent px-5 text-[#2f2a26] shadow-none hover:bg-[#eee6dd] dark:border-[#49413b] dark:text-[#f5efe8] dark:hover:bg-[#25201d]'
+              render={<Link to='/pricing' />}
+            >
+              {t('View Pricing')}
+            </Button>
+            {docsIsExternal ? (
+              <a
+                href={docsUrl}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='inline-flex h-11 items-center justify-center gap-2 px-2 text-sm text-[#756a61] transition-colors hover:text-[#d97757] dark:text-[#b9afa5] dark:hover:text-[#e48768]'
+              >
+                <HugeiconsIcon
+                  icon={BookOpen01Icon}
+                  size={16}
+                  strokeWidth={2}
+                />
+                {t('Read the docs')}
+              </a>
+            ) : (
+              <Link
+                to={docsUrl}
+                className='inline-flex h-11 items-center justify-center gap-2 px-2 text-sm text-[#756a61] transition-colors hover:text-[#d97757] dark:text-[#b9afa5] dark:hover:text-[#e48768]'
+              >
+                <HugeiconsIcon
+                  icon={BookOpen01Icon}
+                  size={16}
+                  strokeWidth={2}
+                />
+                {t('Read the docs')}
+              </Link>
+            )}
+          </div>
         </div>
 
-        <div
-          className='landing-animate-fade-up mt-7 flex w-full flex-wrap items-center justify-center gap-2.5 opacity-0 sm:mt-8 sm:w-auto sm:gap-3'
-          style={{ animationDelay: '160ms' }}
-        >
-          {props.isAuthenticated ? (
-            <Button
-              className='h-11 flex-1 rounded-lg bg-stone-950 px-4 text-sm text-white hover:bg-stone-800 sm:flex-none sm:px-5 dark:bg-stone-100 dark:text-stone-950 dark:hover:bg-white'
-              render={<Link to='/dashboard' />}
-            >
-              {t('Go to Dashboard')}
-              <ArrowRight className='size-4' />
-            </Button>
-          ) : (
-            <Button
-              className='h-11 flex-1 rounded-lg bg-stone-950 px-4 text-sm text-white hover:bg-stone-800 sm:flex-none sm:px-5 dark:bg-stone-100 dark:text-stone-950 dark:hover:bg-white'
-              render={<Link to='/sign-up' />}
-            >
-              {t('Start routing models')}
-              <ArrowRight className='size-4' />
-            </Button>
-          )}
-          <Button
-            variant='outline'
-            className='h-11 flex-1 rounded-lg border-stone-300/70 bg-white/55 px-4 text-sm text-stone-800 shadow-xs hover:bg-white/85 sm:flex-none sm:px-5 dark:border-white/10 dark:bg-white/[0.04] dark:text-stone-100 dark:hover:bg-white/[0.08]'
-            render={<Link to='/pricing' />}
+        <aside className='mt-16 lg:mt-0' aria-labelledby='hero-capabilities'>
+          <p
+            id='hero-capabilities'
+            className='text-sm font-medium text-[#b75f43] dark:text-[#e48768]'
           >
-            {t('View Pricing')}
-          </Button>
-          {renderDocsButton()}
-        </div>
-
-        <div
-          className='landing-animate-fade-up mt-10 w-full opacity-0 sm:mt-12'
-          style={{ animationDelay: '240ms' }}
-        >
-          <LiveRoutingShowcase
-            brandLogo={props.brandLogo}
-            brandName={props.brandName}
-          />
-        </div>
+            {t('Built for AI developers')}
+          </p>
+          <ul className='mt-5 border-y border-[#d8cec3] dark:border-[#3a342f]'>
+            {[
+              t('OpenAI-compatible API'),
+              t('Multi-provider routing'),
+              t('Real-time usage visibility'),
+            ].map((item, index) => (
+              <li
+                key={item}
+                className='grid grid-cols-[2rem_1fr_auto] items-center gap-4 border-b border-[#d8cec3] py-6 last:border-b-0 dark:border-[#3a342f]'
+              >
+                <span className='font-mono text-xs text-[#9b8f84] dark:text-[#776e66]'>
+                  0{index + 1}
+                </span>
+                <span className='text-base font-medium'>{item}</span>
+                <HugeiconsIcon
+                  icon={CheckmarkCircle02Icon}
+                  size={18}
+                  strokeWidth={2}
+                  className='text-[#d97757] dark:text-[#e48768]'
+                />
+              </li>
+            ))}
+          </ul>
+        </aside>
       </div>
     </section>
   )

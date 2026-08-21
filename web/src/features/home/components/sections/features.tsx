@@ -17,10 +17,11 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import {
-  BadgeDollarSign,
-  KeyRound,
-  Layers3,
-} from 'lucide-react'
+  Analytics01Icon,
+  ApiGatewayIcon,
+  Route01Icon,
+} from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import { useTranslation } from 'react-i18next'
 
 import { AnimateInView } from '@/components/animate-in-view'
@@ -32,66 +33,70 @@ interface FeaturesProps {
 
 export function Features(props: FeaturesProps) {
   const { t } = useTranslation()
-
   const features = [
     {
-      icon: <BadgeDollarSign className='size-5' />,
-      title: t('Transparent ratio rules'),
-      desc: t(
-        'No opaque credit systems. Every usage and adjustment record stays traceable, so every bill is easy to verify.'
+      icon: ApiGatewayIcon,
+      title: t('Connect once'),
+      description: t(
+        'Use one OpenAI-compatible endpoint across leading AI providers.'
       ),
     },
     {
-      icon: <KeyRound className='size-5' />,
-      title: t('¥1 ≈ $1 usage'),
-      desc: t(
-        'RMB billing gives you model usage equivalent to USD value, with real-world cost performance around 7x better.'
+      icon: Route01Icon,
+      title: t('Route reliably'),
+      description: t(
+        'Balance traffic, retry failures, and keep applications available.'
       ),
     },
     {
-      icon: <Layers3 className='size-5' />,
-      title: t('Stable access to overseas models'),
-      desc: t(
-        'Enterprise backend clusters connect to overseas providers through one gateway, with route optimization, multi-node failover, and automatic retries that protect long coding sessions.'
-      ),
+      icon: Analytics01Icon,
+      title: t('See every cost'),
+      description: t('Review usage and spend with clear, traceable records.'),
     },
   ]
 
   return (
-    <section className='bg-[#fbf7ef] px-5 py-20 md:py-28 dark:bg-[#181512]'>
-      <div className='mx-auto max-w-6xl'>
-        <AnimateInView className='mb-12 max-w-2xl'>
-          <p className='mb-3 text-xs font-medium tracking-widest text-[#b85f3d] uppercase dark:text-[#f0a27c]'>
+    <section className='border-y border-[#d8cec3] bg-[#eee7de] px-5 py-20 text-[#2f2a26] sm:px-6 md:py-24 lg:py-28 dark:border-[#3a342f] dark:bg-[#1d1916] dark:text-[#f5efe8]'>
+      <div className='mx-auto grid max-w-7xl lg:grid-cols-[minmax(24rem,0.95fr)_minmax(0,1.7fr)] lg:items-start lg:gap-16 xl:gap-24'>
+        <AnimateInView className='max-w-md'>
+          <p className='text-sm font-medium text-[#b75f43] dark:text-[#e48768]'>
             {t('Built for AI developers')}
           </p>
-          <h2 className='text-3xl leading-tight font-semibold tracking-normal text-stone-950 md:text-4xl dark:text-stone-50'>
-            {t('Everything your AI middle station needs to run quietly.')}
+          <h2 className='mt-3 text-2xl leading-tight font-semibold tracking-[-0.025em] text-balance sm:text-3xl'>
+            {t('The essentials, without the noise.')}
           </h2>
-          <p className='mt-4 text-base leading-7 text-stone-600 dark:text-stone-300'>
+          <p className='mt-3 text-base leading-7 text-[#6f655d] dark:text-[#b9afa5]'>
             {t(
-              '{{name}} gives developers one place to connect models, manage keys, and ship reliable AI integrations.',
-              { name: props.brandName }
+              '{{name}} keeps model access simple from first request to scale.',
+              {
+                name: props.brandName,
+              }
             )}
           </p>
         </AnimateInView>
 
-        <div className='grid gap-3 md:grid-cols-3'>
+        <div className='mt-12 grid border-y border-[#d1c5b9] md:grid-cols-3 lg:mt-0 dark:border-[#3a342f]'>
           {features.map((feature, index) => (
             <AnimateInView
               key={feature.title}
               delay={index * 70}
               animation='fade-up'
-              className='rounded-xl border border-stone-300/70 bg-[#fffaf2] p-5 shadow-[0_12px_40px_-32px_rgba(78,52,31,0.55)] dark:border-white/10 dark:bg-white/[0.035] dark:shadow-none'
+              className='border-[#d1c5b9] py-8 md:border-r md:px-7 md:first:pl-0 md:last:border-r-0 md:last:pr-0 lg:min-h-64 dark:border-[#3a342f]'
             >
-              <div className='mb-5 flex size-10 items-center justify-center rounded-lg border border-stone-300/70 bg-[#f1e2d1] text-[#b85f3d] dark:border-white/10 dark:bg-white/[0.05] dark:text-[#f0a27c]'>
-                {feature.icon}
-              </div>
-              <h3 className='text-base font-semibold text-stone-950 dark:text-stone-50'>
-                {feature.title}
-              </h3>
-              <p className='mt-3 text-sm leading-7 text-stone-600 dark:text-stone-300'>
-                {feature.desc}
-              </p>
+              <article>
+                <HugeiconsIcon
+                  icon={feature.icon}
+                  size={22}
+                  strokeWidth={1.8}
+                  className='text-[#d97757] dark:text-[#e48768]'
+                />
+                <h3 className='mt-5 text-base font-semibold'>
+                  {feature.title}
+                </h3>
+                <p className='mt-2 text-sm leading-6 text-[#6f655d] dark:text-[#b9afa5]'>
+                  {feature.description}
+                </p>
+              </article>
             </AnimateInView>
           ))}
         </div>

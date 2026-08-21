@@ -27,7 +27,7 @@ import { useSystemConfig } from '@/hooks/use-system-config'
 import { isLikelyHtml } from '@/lib/content-format'
 import { useAuthStore } from '@/stores/auth-store'
 
-import { CTA, Features, Hero, HowItWorks, Stats } from './components'
+import { Features, Hero } from './components'
 import { useHomePageContent } from './hooks'
 
 export function Home() {
@@ -123,16 +123,16 @@ export function Home() {
   }
 
   return (
-    <PublicLayout showMainContainer={false}>
+    <PublicLayout
+      showMainContainer={false}
+      className="[&_header_a[data-slot='button']]:bg-[#d97757] [&_header_a[data-slot='button']]:text-white [&_header_a[data-slot='button']]:hover:bg-[#c96849] dark:[&_header_a[data-slot='button']]:bg-[#e48768] dark:[&_header_a[data-slot='button']]:text-[#1b1714] dark:[&_header_a[data-slot='button']]:hover:bg-[#ed9577]"
+    >
       <Hero
         isAuthenticated={isAuthenticated}
         brandLogo={logo}
         brandName={systemName}
       />
-      <Stats />
       <Features brandName={systemName} />
-      <HowItWorks brandName={systemName} />
-      <CTA brandName={systemName} />
       <Footer />
     </PublicLayout>
   )
