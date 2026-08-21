@@ -86,12 +86,6 @@ export function useTopNavLinks(): TopNavLink[] {
     links.push({ title: t('Rankings'), href: '/rankings', requiresAuth })
   }
 
-  links.push({
-    title: t('Image Generation'),
-    href: 'https://duodoc.zeabur.app/image-generation-guide',
-    external: true,
-  })
-
   // Docs (supports external links)
   if (modules?.docs !== false) {
     if (docsLink) {
